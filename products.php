@@ -102,14 +102,14 @@
     <div class="navBar">
       <div class="menu-1">
         <a href="index.php">Home</a>
-        <a href="#">Featured</a>
+        <a href="index.php#featured">Featured</a>
       </div>
       <div class="logo-2">
         <a href="">TailTreats</a>
       </div>
       <div class="menu-2">
         <a href="products.php">Products</a>
-        <a href="#">Support</a>
+        <a href="index.php#support">Support</a>
       </div>
     </div>
 
@@ -127,7 +127,8 @@
         </div>
         <p>Moochie Adult Small Breed Chicken Liver Wet Dog Food <br> 85g (12 pouches)</p>
         <p class="price">₱739</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-2">
@@ -137,7 +138,8 @@
         </div>
         <p>Scrumbles Complete Dry Adult and Senior Dog Food Salmon <br> 2kg</p>
         <p class="price">₱979</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-3">
@@ -147,7 +149,8 @@
         </div>
         <p>Kit Cat Signature Salmon Dry Cat Food <br> 1.2kg</p>
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-4">
@@ -157,7 +160,8 @@
         </div>
         <p>Royal Canin Kitten Instinctive Wet Food 85g</p>
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-5">
@@ -167,7 +171,8 @@
         </div>
         <p>Pedigree Adult Beef Wet Dog Food <br> 1.15kg (2 cans)</p>
         <p class="price">₱625</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-6">
@@ -177,7 +182,8 @@
         </div>
         <p>Goodest Meaty Mackerel Pate with Chunks Wet Cat Food 85g (12 pouches)</p>
         <p class="price">₱469</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <!-- Health section -->
@@ -188,7 +194,8 @@
         </div>
         <p>Dr Shiba Jolly Joints Dog Supplement Mini Tub</p>
         <p class="price">₱259</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-2">
@@ -198,7 +205,8 @@
         </div>
         <p>Nexgard One Tablet Chewable for Dogs</p>
         <p class="price">₱899</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-3">
@@ -208,7 +216,8 @@
         </div>
         <p>IAMS Proactive Immune Dog Supplement <br> 168g</p>
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-4">
@@ -218,7 +227,8 @@
         </div>
         <p>Fresh Friends Mint Toothpaste <br> 90g (2pcs)</p>
         <p class="price">₱429</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-5">
@@ -228,7 +238,8 @@
         </div>
         <p>Dr Shiba Anti Flea & Tick Soap</p>
         <p class="price">₱239</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-6">
@@ -238,7 +249,8 @@
         </div>
         <p>VitaCat Calming Aid for Cats 60 Chews</p>
         <p class="price">₱1229</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <!-- Grooming section -->
@@ -249,7 +261,8 @@
         </div>
         <p>Doggo Sharp Layering Scissor</p>
         <p class="price">₱339</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-2">
@@ -259,7 +272,8 @@
         </div>
         <p>Bark2Basics Dog Cologne</p>
         <p class="price">₱639</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-3">
@@ -269,7 +283,8 @@
         </div>
         <p>Doggo Bathing Brush</p>
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-4">
@@ -279,7 +294,8 @@
         </div>
         <p>Andis UltraEdge Clipper Blade <br> Size 10</p>
         <p class="price">₱1459</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-5">
@@ -289,7 +305,8 @@
         </div>
         <p>Boshel Dog Toothbrush Set</p>
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-6">
@@ -299,7 +316,8 @@
         </div>
         <p>Doggo Pet Nail Scissor</p>
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <!-- Supplies section -->
@@ -310,7 +328,8 @@
         </div>
         <p>Doggo Squeaky Ball</p>
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-2">
@@ -320,7 +339,8 @@
         </div>
         <p>Doggo Strong Harness</p>
         <p class="price">₱288</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-3">
@@ -330,7 +350,8 @@
         </div>
         <p>Doggo Slow-Down Bowl</p>
         <p class="price">₱348</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-4">
@@ -340,7 +361,8 @@
         </div>
         <p>Pets at Home Clamshell Cat Bed Blue Spotty</p>
         <p class="price">₱1099</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-5">
@@ -350,7 +372,8 @@
         </div>
         <p>Squishmallows Original Gordon Shark Pet Bed Grey</p>
         <p class="price">₱2199</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
 
       <div class="item item-6">
@@ -360,7 +383,8 @@
         </div>
         <p>Approved Washable Male Wrap 1s Large</p>
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+          cart</button>
       </div>
     </div>
 
