@@ -1,10 +1,16 @@
+<?php
+session_start();
+
+$isLoggedIn = isset($_SESSION['user']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar</title>
+  <title>TailTreats</title>
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,14 +108,14 @@
     <div class="navBar">
       <div class="menu-1">
         <a href="index.php">Home</a>
-        <a href="#">Featured</a>
+        <a href="index.php#featured">Featured</a>
       </div>
       <div class="logo-2">
         <a href="">TailTreats</a>
       </div>
       <div class="menu-2">
         <a href="products.php">Products</a>
-        <a href="#">Support</a>
+        <a href="index.php#support">Support</a>
       </div>
     </div>
 
@@ -140,82 +146,118 @@
     <section class="container my-5">
       <div class="row text-center">
 
-        <!-- food -->
-        <div class="col-md-3 mb-4">
-          <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">
-            <div class="mb-3">
-              <img src="./images/categories/food.jpg" alt="Food" class="circle-img">
+        <!-- Food -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="products.php#foodSec" class="text-decoration-none">
+            <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">
+              <div class="mb-3">
+                <img src="./images/categories/food.jpg" alt="Food Category" class="circle-img">
+              </div>
+              <h3>Food</h3>
+              <p>Quality treats and meals for pets.</p>
             </div>
-            <h3>Food</h3>
-            <p>Quality treats and meals for pets.</p>
-          </div>
+          </a>
         </div>
 
-        <!-- health -->
-        <div class="col-md-3 mb-4">
-          <div class="p-4 rounded category-box" style="background-color: var(--clr-accent); color: var(--clr-light);">
-            <div class="mb-3">
-              <img src="./images/categories/health.jpg" alt="Health" class="circle-img">
+        <!-- Health -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="products.php#healthSec" class="text-decoration-none">
+            <div class="p-4 rounded category-box" style="background-color: var(--clr-accent); color: var(--clr-light);">
+              <div class="mb-3">
+                <img src="./images/categories/health.jpg" alt="Health Category" class="circle-img">
+              </div>
+              <h3>Health</h3>
+              <p>Essential products for pet wellness.</p>
             </div>
-            <h3>Health</h3>
-            <p>Essential products for pet wellness.</p>
-          </div>
+          </a>
         </div>
 
-        <!-- supplies -->
-        <div class="col-md-3 mb-4">
-          <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">
-            <div class="mb-3">
-              <img src="./images/categories/toys.jpg" alt="Supplies" class="circle-img">
+        <!-- Grooming -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="products.php#groomSec" class="text-decoration-none">
+           <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">  
+              <div class="mb-3">
+                <img src="./images/categories/groom.jpg" alt="Grooming Category" class="circle-img">
+              </div>
+              <h3>Grooming</h3>
+              <p>Keep your pets clean and stylish.</p>
             </div>
-            <h3>Supplies</h3>
-            <p>Everyday supplies for happy pets.</p>
-          </div>
+          </a>
         </div>
 
-        <!-- grooming -->
-        <div class="col-md-3 mb-4">
-          <div class="p-4 rounded category-box" style="background-color: var(--clr-accent); color: var(--clr-light);">
-            <div class="mb-3">
-              <img src="./images/categories/groom.jpg" alt="Grooming" class="circle-img">
+        <!-- Supplies -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="products.php#supplySec" class="text-decoration-none">
+            <div class="p-4 rounded category-box" style="background-color: var(--clr-accent); color: var(--clr-light);">
+              <div class="mb-3">
+                <img src="./images/categories/toys.jpg" alt="Supplies Category" class="circle-img">
+              </div>
+              <h3>Supplies</h3>
+              <p>Everyday supplies for happy pets.</p>
             </div>
-            <h3>Grooming</h3>
-            <p>Keep your pets clean and stylish.</p>
-          </div>
+          </a>
         </div>
 
       </div>
     </section>
 
 
-    <!-- Slider -->
-    <div class="wrapper">
-      <div class="slider-track">
-        <div class="items"><img src="image1.jpg" alt="Image 1"></div>
-        <div class="items"><img src="image2.jpg" alt="Image 2"></div>
-        <div class="items"><img src="image3.jpg" alt="Image 3"></div>
-        <div class="items"><img src="image4.jpg" alt="Image 4"></div>
-        <div class="items"><img src="image5.jpg" alt="Image 5"></div>
-        <div class="items"><img src="image6.jpg" alt="Image 6"></div>
-        <div class="items"><img src="image7.jpg" alt="Image 7"></div>
-        <div class="items"><img src="image8.jpg" alt="Image 8"></div>
-        <!-- -------------- -->
-        <div class="items"><img src="image1.jpg" alt="Image 1"></div>
-        <div class="items"><img src="image2.jpg" alt="Image 2"></div>
-        <div class="items"><img src="image3.jpg" alt="Image 3"></div>
-        <div class="items"><img src="image4.jpg" alt="Image 4"></div>
-        <div class="items"><img src="image5.jpg" alt="Image 5"></div>
-        <div class="items"><img src="image6.jpg" alt="Image 6"></div>
-        <div class="items"><img src="image7.jpg" alt="Image 7"></div>
-        <div class="items"><img src="image8.jpg" alt="Image 8"></div>
+    <!-- slider -->
+    <div class="slider" style="
+      --width: 200px;
+      --height:200px;
+      --quantity: 8;
+     ">
+      <div class="list">
+        <div class="items" style="--position: 1"><img src="./images/slides/1.png" alt="Product 1"></div>
+        <div class="items" style="--position: 2"><img src="./images/slides/2.png" alt="Product 2"></div>
+        <div class="items" style="--position: 3"><img src="./images/slides/3.png" alt="Product 3"></div>
+        <div class="items" style="--position: 4"><img src="./images/slides/4.png" alt="Product 4"></div>
+        <div class="items" style="--position: 5"><img src="./images/slides/5.png" alt="Product 5"></div>
+        <div class="items" style="--position: 6"><img src="./images/slides/6.png" alt="Product 6"></div>
+        <div class="items" style="--position: 7"><img src="./images/slides/7.png" alt="Product 7"></div>
+        <div class="items" style="--position: 8"><img src="./images/slides/8.png" alt="Product 8"></div>
       </div>
     </div>
 
 
+    <!-- modal -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- info -->
+            <div class="text-center mb-4">
+              <img id="modalProductImage" src="" alt="Product Image" class="img-fluid rounded"
+                style="width: 150px; height: auto;">
+              <h5 id="modalProductName" class="mt-3 mb-1"></h5>
+              <h6 id="modalProductPrice" class="text-muted"></h6>
+              <p id="modalProductDescription" class="text-muted small"></p>
+            </div>
+
+            <!-- quant -->
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="decreaseQuantity"
+                style="width: 40px; height: 40px; font-size: 20px;">-</button>
+              <span id="productQuantity" class="mx-3 fs-4">1</span>
+              <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="increaseQuantity"
+                style="width: 40px; height: 40px; font-size: 20px;">+</button>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center align-items-center">
+            <button class="btn btn-secondary btn-outline " data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary btn-outline" id="confirmAddToCart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- carousel -->
-    <section class="product-section">
+    <section class="product-section" id="featured">
       <div class="container">
-        <h2 class="section-title text-center">Featured Products</h2>
+        <h2 class="section-title text-center">Recommended by us</h2>
         <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <!-- First Slide -->
@@ -223,29 +265,29 @@
               <div class="row justify-content-center">
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/desklamp.png" alt="Premier Desk Lamp" class="product-img">
-                    <h5 class="product-title">Product 1</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
+                    <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
+                    <p class="product-price">₱739</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/tablelamp.png" alt="Premier Table Lamp" class="product-img">
-                    <h5 class="product-title">Product 2</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/health/health2.png" alt="Premier Table Lamp" class="product-img">
+                    <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
+                    <p class="product-price">₱899</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/enrum.png" alt="Modern Lamp L20" class="product-img">
-                    <h5 class="product-title">Product 3</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/supplies/supplies1.png" alt="Modern Lamp L20" class="product-img">
+                    <h5 class="product-title">Doggo Squeaky Ball</h5>
+                    <p class="product-price">₱119</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
               </div>
@@ -255,46 +297,168 @@
               <div class="row justify-content-center">
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/stainedlamp.png" alt="Premier Stained Lamp" class="product-img">
-                    <h5 class="product-title">Product 4</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/grooming/groom1.png" alt="Premier Stained Lamp" class="product-img">
+                    <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
+                    <p class="product-price">₱339</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/roundedottoman.png" alt="Ottoman 123" class="product-img">
-                    <h5 class="product-title">Product 5</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/carriers/special3.png" alt="Ottoman 123" class="product-img">
+                    <h5 class="product-title">Tail Treat bag</h5>
+                    <p class="product-price">₱1099</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="product-card">
-                    <img src="images/featured/ottoman.png" alt="Ottoman 350" class="product-img">
-                    <h5 class="product-title">Product 6</h5>
-                    <p class="product-price">₱</p>
-                    <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill"
-                        style="margin-right: 5px;"></i> Add to cart</button>
+                    <img src="./images/products/foods/treat6.png" alt="Ottoman 350" class="product-img">
+                    <h5 class="product-title">Dreamis with cheese 60g</h5>
+                    <p class="product-price">₱509</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <!-- Carousel Controls -->
-          <a class="carousel-control-prev" href="#productSlider" role="button" data-bs-slide="prev">
+          <a class="carousel-control-prev" href="#productSlider1" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#productSlider" role="button" data-bs-slide="next">
+          <a class="carousel-control-next" href="#productSlider1" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </a>
         </div>
       </div>
     </section>
+
+    <!-- exclusive -->
+    <section class="product-section">
+      <div class="container">
+        <h2 class="section-title text-center">Exclusive Products</h2>
+        <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- First Slide -->
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives1.png" alt="Product 1" class="product-img">
+                    <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
+                    <p class="product-price">₱739</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives2.png" alt="Premier Table Lamp"
+                      class="product-img">
+                    <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
+                    <p class="product-price">₱899</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives3.png" alt="Modern Lamp L20" class="product-img">
+                    <h5 class="product-title">Doggo Squeaky Ball</h5>
+                    <p class="product-price">₱119</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Second Slide -->
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives4.png" alt="Premier Stained Lamp"
+                      class="product-img">
+                    <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
+                    <p class="product-price">₱339</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives5.png" alt="Ottoman 123" class="product-img">
+                    <h5 class="product-title">Tail Treat bag</h5>
+                    <p class="product-price">₱1099</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-card">
+                    <img src="./images/products/exclusives/exclusives6.png" alt="Ottoman 350" class="product-img">
+                    <h5 class="product-title">Dreamis with cheese 60g</h5>
+                    <p class="product-price">₱509</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Carousel Controls -->
+          <a class="carousel-control-prev" href="#productSlider2" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#productSlider2" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- support -->
+    <div id="support">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title text-center">Support Our Furry Friends</h2>
+          <p class="sub-heading">Your donations help provide food, shelter, and medical care for pets in need.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="organization">
+            <img src="images/donate/organization1.png" alt="Organization 1" class="organization-img">
+            <div class="organization-overlay">
+              <a href="https://donatetopaws.org.ph/" class="btn btn-primary btn-outline">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="organization">
+            <img src="images/donate/organization4.png" alt="Organization 2" class="organization-img">
+            <div class="organization-overlay">
+              <a href="https://paws.org.ph/cruelty-neglect/" class="btn btn-primary btn-outline">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="organization">
+            <img src="images/donate/organization3.png" alt="Organization 3" class="organization-img">
+            <div class="organization-overlay">
+              <a href="https://paws.org.ph/adopt/" class="btn btn-primary btn-outline">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -349,6 +513,7 @@
   <script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/carousel.js"></script>
+  <script src="./js/addCart.js"></script>
 </body>
 
 </html>
