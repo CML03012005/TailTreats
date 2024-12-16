@@ -2,12 +2,6 @@
 
 session_start();
 
-
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-	
-    header("Location: ./forms/login.php");
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +29,34 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
   <!-- sidebar -->
   <?php
+  if (!isset($_SESSION["loggedin"])) {
+    echo"
+    <div class='sidebar'>
+        <div class='top'>
+          <div class='logo-1'>
+            <i style='color: white; margin-left: 10px;'></i>
+            <span class='act' style='color: white;'></span>
+          </div>
+          <i id='button' class='bx bx-menu'></i>
+        </div>
+        <div class='user'>
+          <img src='./images/user-profile.png' alt='profile' class='user-img'>
+          <div>
+            <p class='bold'>Hello</p>
+            <p></p>
+          </div>
+        </div>
+        <ul class='nav-list'>
+          <li class='nav-item-wrapper'>
+            <a href='./forms/login.php' class='nav-link'>
+              <i class='bx bx-log-out nav-icon'></i>
+              <span class='nav-item'>Log-in</span>
+            </a>
+            <span class='tooltip'>Log-in</span>
+          </li>
+        </ul>
+      </div>";
+  } else if ($_SESSION["loggedin"] == true){
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
     
@@ -169,12 +191,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
           </li>
         </ul>
       </div>";
-    } 
-    else {
-      echo"<div class='menu-toggle'>
-      <a href='../forms/login.php'><i class=''>Log-in</i></a>
-      </div>";
-    }
+    }     
+  }
   ?>
 
   <!-- main -->
