@@ -42,7 +42,7 @@ session_start();
         <div class='user'>
           <img src='./images/user-profile.png' alt='profile' class='user-img'>
           <div>
-            <p class='bold'>Hello</p>
+            <p class='bold'>Guest</p>
             <p></p>
           </div>
         </div>
