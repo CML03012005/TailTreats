@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+	
+    header("Location: ./forms/login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,80 +34,148 @@
 <body>
 
   <!-- sidebar -->
-  <div class="sidebar">
-    <div class="top">
-      <div class="logo-1">
-        <i class="" style="color: white; margin-left: 10px;"></i>
-        <span class="act" style="color: white;"></span>
-      </div>
-      <i id="button" class="bx bx-menu"></i>
-    </div>
-    <div class="user">
-      <img src="./images/user-profile.png" alt="profile" class="user-img">
-      <div>
-        <p class="bold">Display Username </p>
-        <p>Display Role Here</p>
-      </div>
-    </div>
-    <ul class="nav-list">
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bxs-grid-alt nav-icon"></i>
-          <span class="nav-item">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bxs-user-account nav-icon"></i>
-          <span class="nav-item">Account</span>
-        </a>
-        <span class="tooltip">Account</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bxs-shopping-bag nav-icon"></i>
-          <span class="nav-item">Products</span>
-        </a>
-        <span class="tooltip">Products</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bxs-cart nav-icon"></i>
-          <span class="nav-item">Cart</span>
-        </a>
-        <span class="tooltip">Cart</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bx-body nav-icon"></i>
-          <span class="nav-item">Customers</span>
-        </a>
-        <span class="tooltip">Customers</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bx-location-plus nav-icon"></i>
-          <span class="nav-item">Shipping</span>
-        </a>
-        <span class="tooltip">Shipping</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bx-cog nav-icon"></i>
-          <span class="nav-item">Settings</span>
-        </a>
-        <span class="tooltip">Settings</span>
-      </li>
-      <li class="nav-item-wrapper">
-        <a href="#" class="nav-link">
-          <i class="bx bx-log-out nav-icon"></i>
-          <span class="nav-item">Logout</span>
-        </a>
-        <span class="tooltip">Logout</span>
-      </li>
-    </ul>
-  </div>
+  <?php
+    $username = $_SESSION["username"];
+    $role = $_SESSION["role"];
+    
+    if ($username != null && $role =='Admin'){
+      echo"
+      <div class='sidebar'>
+        <div class='top'>
+          <div class='logo-1'>
+            <i style='color: white; margin-left: 10px;'></i>
+            <span class='act' style='color: white;'></span>
+          </div>
+          <i id='button' class='bx bx-menu'></i>
+        </div>
+        <div class='user'>
+          <img src='./images/user-profile.png' alt='profile' class='user-img'>
+          <div>
+            <p class='bold'>$username</p>
+            <p>$role</p>
+          </div>
+        </div>
+        <ul class='nav-list'>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-grid-alt nav-icon'></i>
+              <span class='nav-item'>Dashboard</span>
+            </a>
+            <span class='tooltip'>Dashboard</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-user-account nav-icon'></i>
+              <span class='nav-item'>Account</span>
+            </a>
+            <span class='tooltip'>Account</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-shopping-bag nav-icon'></i>
+              <span class='nav-item'>Products</span>
+            </a>
+            <span class='tooltip'>Products</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-cart nav-icon'></i>
+              <span class='nav-item'>Cart</span>
+            </a>
+            <span class='tooltip'>Cart</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bx-body nav-icon'></i>
+              <span class='nav-item'>Customers</span>
+            </a>
+            <span class='tooltip'>Customers</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bx-location-plus nav-icon'></i>
+              <span class='nav-item'>Shipping</span>
+            </a>
+            <span class='tooltip'>Shipping</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bx-cog nav-icon'></i>
+              <span class='nav-item'>Settings</span>
+            </a>
+            <span class='tooltip'>Settings</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='./system/controllers/logout.php' class='nav-link'>
+              <i class='bx bx-log-out nav-icon'></i>
+              <span class='nav-item'>Logout</span>
+            </a>
+            <span class='tooltip'>Logout</span>
+          </li>
+        </ul>
+      </div>";
+    } else if ($username != null && $role =='User'){
+      echo"
+      <div class='sidebar'>
+        <div class='top'>
+          <div class='logo-1'>
+            <i style='color: white; margin-left: 10px;'></i>
+            <span class='act' style='color: white;'></span>
+          </div>
+          <i id='button' class='bx bx-menu'></i>
+        </div>
+        <div class='user'>
+          <img src='./images/user-profile.png' alt='profile' class='user-img'>
+          <div>
+            <p class='bold'>$username</p>
+            <p>$role</p>
+          </div>
+        </div>
+        <ul class='nav-list'>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-user-account nav-icon'></i>
+              <span class='nav-item'>Account</span>
+            </a>
+            <span class='tooltip'>Account</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bxs-cart nav-icon'></i>
+              <span class='nav-item'>Cart</span>
+            </a>
+            <span class='tooltip'>Cart</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bx-location-plus nav-icon'></i>
+              <span class='nav-item'>Shipping</span>
+            </a>
+            <span class='tooltip'>Shipping</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='#' class='nav-link'>
+              <i class='bx bx-cog nav-icon'></i>
+              <span class='nav-item'>Settings</span>
+            </a>
+            <span class='tooltip'>Settings</span>
+          </li>
+          <li class='nav-item-wrapper'>
+            <a href='./system/controllers/logout.php' class='nav-link'>
+              <i class='bx bx-log-out nav-icon'></i>
+              <span class='nav-item'>Logout</span>
+            </a>
+            <span class='tooltip'>Logout</span>
+          </li>
+        </ul>
+      </div>";
+    } 
+    else {
+      echo"<div class='menu-toggle'>
+      <a href='../forms/login.php'><i class=''>Log-in</i></a>
+      </div>";
+    }
+  ?>
 
   <!-- main -->
   <div class="main-content">

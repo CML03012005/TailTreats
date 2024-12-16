@@ -1,0 +1,128 @@
+:root {
+  --primary: #fb6e14;
+  --accent: #130d08;
+  --background: #fff;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx");
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: var(--background);
+  background-image:url(/images/bgregis.jpg) ;
+  color: var(--accent);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--primary);
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 4px var(--primary);
+}
+
+input[type="submit"] {
+  background-color: transparent;
+  color: var(--accent);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  outline: var(--primary);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.col-md-6 {
+  flex: 1;
+}
+
+/* bulok */
+span {
+  display: block;
+  color: red;
+  font-size: 12px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.input-group .bi {
+  position: absolute;
+  right: 10px;
+  color: #aaa;
+  font-size: 18px;
+}
+
