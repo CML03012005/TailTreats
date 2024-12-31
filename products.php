@@ -19,13 +19,44 @@ session_start();
     rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/other.css" rel="stylesheet">
   <link href="./css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+    .search-filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 20px auto;
+      width: 85%;
+    }
 
+    .search-filter-bar input,
+    .search-filter-bar select {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid var(--clr-orange);
+      border-radius: 10px;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .search-filter-bar input:focus,
+    .search-filter-bar select:focus {
+      border-color: var(--clr-accent);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-filter-bar input {
+      flex: 2;
+    }
+
+    .search-filter-bar select {
+      flex: 1;
+    }
   </style>
 </head>
 
