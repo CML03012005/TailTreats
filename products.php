@@ -23,6 +23,10 @@ session_start();
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/other.css" rel="stylesheet">
   <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+  </style>
 </head>
 
 <body>
@@ -30,7 +34,7 @@ session_start();
   <!-- sidebar -->
   <?php
   if (!isset($_SESSION["loggedin"])) {
-    echo"
+    echo "
     <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -56,12 +60,12 @@ session_start();
           </li>
         </ul>
       </div>";
-  } else if ($_SESSION["loggedin"] == true){
+  } else if ($_SESSION["loggedin"] == true) {
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
-    
-    if ($username != null && $role =='Admin'){
-      echo"
+
+    if ($username != null && $role == 'Admin') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -136,8 +140,8 @@ session_start();
           </li>
         </ul>
       </div>";
-    } else if ($username != null && $role =='User'){
-      echo"
+    } else if ($username != null && $role == 'User') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -191,7 +195,7 @@ session_start();
           </li>
         </ul>
       </div>";
-    }     
+    }
   }
   ?>
 
@@ -215,6 +219,16 @@ session_start();
     <div class="col-md-8 offset-md-2 mx-auto text-center mt-2">
       <h2 class="heading to-animate">Products</h2>
       <p class="sub-heading to-animate">Find what you're looking for at Tail Treats!</p>
+    </div>
+
+    <div class="search-filter-bar">
+      <input type="text" id="searchBar" placeholder="Search products..." class="form-control">
+      <select id="filterDropdown" class="form-control">
+        <option value="All">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Health">Health</option>
+        <option value="Grooming">Grooming</option>
+      </select>
     </div>
 
     <div class="newContainer">
@@ -496,6 +510,8 @@ session_start();
       sidebar.classList.toggle('active');
     };
   </script>
+  <script src="./js/search.js"></script>
+
 </body>
 
 </html>
