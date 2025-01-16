@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+$_SESSION['id'] = $id; 
+
 
 ?>
 
@@ -154,8 +156,8 @@ session_start();
           </div>
         </div>
         <ul class='nav-list'>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+          <li class='nav-item-wrapper'> 
+            "<a href="./forms/edituser.php?id=<?php echo $_SESSION['id']; ?>" class='nav-link'>"
               <i class='bx bxs-user-account nav-icon'></i>
               <span class='nav-item'>Account</span>
             </a>

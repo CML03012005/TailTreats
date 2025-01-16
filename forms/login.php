@@ -48,7 +48,7 @@
                                     name="password"
                                     minlength="8"
                                     placeholder=""
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}"
                                     title="Password must be 8-20 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character."
                                     required>
                                     <label>Password</label>

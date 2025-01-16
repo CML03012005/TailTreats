@@ -78,7 +78,7 @@ session_start();
         </div>
         <ul class='nav-list'>
           <li class='nav-item-wrapper'>
-            <a href='./admin/dashboard.php' class='nav-link'>
+            <a href='../admin/dashboard.php' class='nav-link'>
               <i class='bx bxs-grid-alt nav-icon'></i>
               <span class='nav-item'>Dashboard</span>
             </a>
@@ -127,7 +127,7 @@ session_start();
             <span class='tooltip'>Settings</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./system/controllers/logout.php' class='nav-link'>
+            <a href='../system/controllers/logout.php' class='nav-link'>
               <i class='bx bx-log-out nav-icon'></i>
               <span class='nav-item'>Logout</span>
             </a>
@@ -182,7 +182,7 @@ session_start();
             <span class='tooltip'>Settings</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./system/controllers/logout.php' class='nav-link'>
+            <a href='../system/controllers/logout.php' class='nav-link'>
               <i class='bx bx-log-out nav-icon'></i>
               <span class='nav-item'>Logout</span>
             </a>
@@ -195,7 +195,80 @@ session_start();
   ?>
 
   <div class="main-content">
+  <section style="margin: 50px 0;">
+          <!-- Search Form -->
+          <form class="d-flex" role="search" method="GET" action="">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+      </form>
+    <div class="container">
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Mobile no.</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    require_once "../system/dao/connect.php";
+                    
+                    // SQL query
+                    $query = "SELECT * FROM usertable";
 
+                    // search input
+                    if (isset($_GET['search']) && !empty($_GET['search'])) {
+                        $search_term = $conn->real_escape_string($_GET['search']);
+                        $query = "SELECT * FROM usertable WHERE 
+                            username LIKE '%$search_term' OR
+                            firstname LIKE '%$search_term%' OR 
+                            middlename LIKE '%$search_term%' OR 
+                            lastname LIKE '%$search_term%' OR 
+                            address LIKE '%$search_term%' OR
+                            birthday LIKE '%$search_term%' OR
+                            mobilenumber LIKE '%$search_term%' OR
+                            role LIKE '%$search_term%'";
+                    }
+
+                    // Execute query and display results
+                    if ($result = $conn->query($query)) {
+                        while ($row = $result->fetch_assoc()) { 
+                            $id = $row['id'];
+                            $username = $row['username'];
+                            $firstname = $row['firstname'];
+                            $middlename = $row['middlename'];
+                            $lastname = $row['lastname'];
+                            $address = $row['address'];
+                            $birthday = $row['birthday'];
+                            $mobilenumber = $row['mobilenumber'];
+                            $role = $row['role'];
+                ?>
+				
+                <tr class="trow">
+                    <td><?php echo $id; ?></td>
+                    <td><?php echo $username; ?></td>
+                    <td><?php echo $firstname; ?></td>
+                    <td><?php echo $middlename; ?></td>
+                    <td><?php echo $lastname; ?></td>
+                    <td><?php echo $address; ?></td>
+                    <td><?php echo $birthday; ?></td>
+                    <td><?php echo $mobilenumber; ?></td>
+                    <td><?php echo $role; ?></td>
+                </tr>
+                <?php
+                        } 
+                    } 
+                ?>
+            </tbody>
+          </table>
+    </div>
+</section>
   </div>
 
   <script>
