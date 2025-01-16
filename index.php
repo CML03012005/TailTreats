@@ -79,7 +79,7 @@ session_start();
         </div>
         <ul class='nav-list'>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./admin/dashboard.php' class='nav-link'>
               <i class='bx bxs-grid-alt nav-icon'></i>
               <span class='nav-item'>Dashboard</span>
             </a>

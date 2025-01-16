@@ -15,10 +15,6 @@ input:valid:not(:placeholder-shown) {
   background-position: calc(100% - 10px);
 }
 
-input:invalid:not(:placeholder-shown) + p {
-  color: rgb(130, 5, 5);
-}
-
 form:has(input:invalid) input[type="submit"] {
   opacity: 0.6;
   pointer-events: none;
