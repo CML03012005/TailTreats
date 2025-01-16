@@ -1,0 +1,29 @@
+input:invalid:not(:placeholder-shown) {
+  border-color: red;
+  background-image: url(../images/redcheck.svg);
+}
+
+input:valid:not(:placeholder-shown) {
+  background-image: url(../images/greencheck.svg);
+
+}
+
+input:invalid:not(:placeholder-shown), 
+input:valid:not(:placeholder-shown) {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px);
+}
+
+input:invalid:not(:placeholder-shown) + p {
+  color: rgb(130, 5, 5);
+}
+
+form:has(input:invalid) input[type="submit"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+input[type="submit"] {
+  background-image: none !important; 
+}

@@ -4,10 +4,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
         <link rel="stylesheet" href="../css/log-in-style.css">
+        <link rel="stylesheet" href="../css/validationlogin.css">
         <style>
             body{
                 background: url(../images/background.png);
             }
+            
         </style>
     </head>
     <body>
@@ -29,14 +31,29 @@
 
                             <div class="actual-form">
                                 <div class="input-wrap">
-                                    <input type="text" class="input-field" name="username">
+                                    <input 
+                                    type="text"
+                                    class="input-field"
+                                    name="username"
+                                    minlength="4"
+                                    placeholder=""
+                                    required>
                                     <label>Username</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="password" class="input-field" name="password">
+                                    <input 
+                                    type="password" 
+                                    class="input-field" 
+                                    name="password"
+                                    minlength="8"
+                                    placeholder=""
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
+                                    title="Password must be 8-20 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character."
+                                    required>
                                     <label>Password</label>
                                 </div>
+                                
 
                                 <div class="">
                                     <input type="hidden" class="" name="role">
