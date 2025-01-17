@@ -19,9 +19,6 @@ session_start();
   <!-- cdn icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
-
-
   <style>
     body {
       background-image: url(../images/bgregis.jpg);
@@ -31,85 +28,16 @@ session_start();
 
 <body>
 <?php
-require_once "../system/dao/connect.php";
-
-// get id
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-    // Use prepared statements to prevent SQL injection
-    $query = $conn->prepare("SELECT * FROM usertable WHERE id = ?");
-    $query->bind_param("i", $id);
-    $query->execute();
-    $result = $query->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-    } 
-} else {
-  echo "id missing";
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $middlename = $_POST['middlename'];
-    $lastname = $_POST['lastname'];
-    $address = $_POST['address'];
-    $mobilenumber = $_POST['mobileNumber'];
-    $birthday = $_POST['birthday'];
-
-    // Validation for required fields
-    if (empty($id) ||  empty($username) || empty($firstname) || empty($lastname) || empty($address) || empty($mobilenumber) || empty($birthday)) {
-        echo "<script>
-                Swal.fire({
-                    background: '#2D142C',
-                    color: '#FFECD1',
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Required fields must be filled out!'
-                }).then(() => {
-                    window.location = './edituser.php';
-                });
-              </script>";
-        exit;
-    }
-
-    // Update the database
-    $updateQuery = $conn->prepare("UPDATE usertable SET username = ?, firstname = ?, middlename = ?, lastname = ?, address = ?, mobilenumber = ?, birthday = ? WHERE id = ?");
-    $updateQuery->bind_param("ssssssi", $username, $firstname, $middlename, $lastname, $address, $mobilenumber, $birthday, $id);
-
-    if ($updateQuery->execute()) {
-        echo "<script>
-                Swal.fire({
-                    background: '#2D142C',
-                    color: '#FFECD1',
-                    icon: 'success',
-                    title: 'Updated',
-                    text: 'You have updated your account successfully!'
-                }).then(() => {
-                    window.location = '../index.php';
-                });
-              </script>";
-    } else {
-        echo "<script>
-                Swal.fire({
-                    background: '#2D142C',
-                    color: '#FFECD1',
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Failed to update account!'
-                }).then(() => {
-                    window.location = './edituser.php';
-                });
-              </script>";
-    }
-}
+include '../system/dao/connect.php';
+$id = $_SESSION["id"];
+//fetch info
+$query = mysqli_query($conn, "SELECT * FROM usertable where id='$id'");
+$row = mysqli_fetch_assoc($query);
 ?>
+
   <h1>User Information</h1>
   <div id="error"></div>
-  <form id="signupformValidation" action="../system/dao/addaccount.php" method="post">
+  <form id="signupformValidation" action="../system/dao/edit.php" method="post">
     <div class="container">
       <div class="row">
         <input type="hidden" id="id" name="id" value="<?php echo $row['id']; ?>" />
@@ -194,12 +122,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
 
-      <input type="submit" value="Submit" name='insert' />
+      <input type="submit" value="Submit" name='insert'/>
     </div>
   </form>
   <!-- scripts -->
   <script src="../js/jquery-3.7.1.min.js"></script>
-  <script src="../js/createAccvalidation.js"></script>
+  <script src="../js/editAccvalidation.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/jquery-ui.min.js"></script>
   <script src="../js/date.js"></script>
