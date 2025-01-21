@@ -62,10 +62,10 @@ session_start();
 
 <body>
 
-  <!-- sidebar -->
-  <?php
+   <!-- sidebar -->
+   <?php
   if (!isset($_SESSION["loggedin"])) {
-    echo "
+    echo"
     <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -77,7 +77,7 @@ session_start();
         <div class='user'>
           <img src='./images/user-profile.png' alt='profile' class='user-img'>
           <div>
-            <p class='bold'>Hello</p>
+            <p class='bold'>Guest</p>
             <p></p>
           </div>
         </div>
@@ -91,12 +91,12 @@ session_start();
           </li>
         </ul>
       </div>";
-  } else if ($_SESSION["loggedin"] == true) {
+  } else if ($_SESSION["loggedin"] == true){
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
-
-    if ($username != null && $role == 'Admin') {
-      echo "
+    
+    if ($username != null && $role =='Admin'){
+      echo"
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -114,18 +114,11 @@ session_start();
         </div>
         <ul class='nav-list'>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./admin/dashboard.php' class='nav-link'>
               <i class='bx bxs-grid-alt nav-icon'></i>
               <span class='nav-item'>Dashboard</span>
             </a>
             <span class='tooltip'>Dashboard</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bxs-user-account nav-icon'></i>
-              <span class='nav-item'>Account</span>
-            </a>
-            <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
@@ -171,8 +164,8 @@ session_start();
           </li>
         </ul>
       </div>";
-    } else if ($username != null && $role == 'User') {
-      echo "
+    } else if ($username != null && $role =='User'){
+      echo"
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -189,8 +182,8 @@ session_start();
           </div>
         </div>
         <ul class='nav-list'>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+          <li class='nav-item-wrapper'> 
+            <a href='./forms/edituser.php'class='nav-link'>
               <i class='bx bxs-user-account nav-icon'></i>
               <span class='nav-item'>Account</span>
             </a>
@@ -211,7 +204,7 @@ session_start();
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
@@ -226,7 +219,7 @@ session_start();
           </li>
         </ul>
       </div>";
-    }
+    }     
   }
   ?>
 

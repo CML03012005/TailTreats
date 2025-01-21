@@ -27,13 +27,13 @@ session_start();
 </head>
 
 <body>
-<?php
-include '../system/dao/connect.php';
-$id = $_SESSION["id"];
-//fetch info
-$query = mysqli_query($conn, "SELECT * FROM usertable where id='$id'");
-$row = mysqli_fetch_assoc($query);
-?>
+  <?php
+  include '../system/dao/connect.php';
+  $id = $_SESSION["id"];
+  //fetch info
+  $query = mysqli_query($conn, "SELECT * FROM usertable where id='$id'");
+  $row = mysqli_fetch_assoc($query);
+  ?>
 
   <h1>User Information</h1>
   <div id="error"></div>
@@ -46,66 +46,72 @@ $row = mysqli_fetch_assoc($query);
       <div class="row">
         <div class="col-md-6">
           <label for="username">Username:</label>
-          <div class="input-group">
-            <input type="text" id="username" name="username" placeholder="Enter Username" value="<?php echo $row['username']; ?>" />
-            <span></span>
-            <i class="bi bi-person"></i>
-          </div>
+
+          <input type="text" id="username" name="username" placeholder="Enter Username"
+            value="<?php echo $row['username']; ?>" />
+          <span></span>
+
+
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <label for="firstName">First name:</label>
-          <div class="input-group">
-            <input type="text" id="firstname" name="firstname" placeholder="Enter First Name" value="<?php echo $row['firstname']; ?>" />
-            <span></span>
-            <i class="bi bi-person-badge"></i>
-          </div>
+
+          <input type="text" id="firstname" name="firstname" placeholder="Enter First Name"
+            value="<?php echo $row['firstname']; ?>" />
+          <span></span>
+
+
         </div>
 
       </div>
       <div class="row">
         <div class="col-md-6">
           <label for="middleName">Middle name (Optional):</label>
-          <div class="input-group">
-            <input type="text" id="middlename" name="middlename" placeholder="Enter Middle Name" value="<?php echo $row['middlename']; ?>" />
-            <span></span>
-            <i class="bi bi-person-lines-fill"></i>
-          </div>
+
+          <input type="text" id="middlename" name="middlename" placeholder="Enter Middle Name"
+            value="<?php echo $row['middlename']; ?>" />
+          <span></span>
+
+
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <label for="lastName">Last name:</label>
-          <div class="input-group">
-            <input type="text" id="lastname" name="lastname" placeholder="Enter Last Name" value="<?php echo $row['lastname']; ?>" />
-            <span></span>
-            <i class="bi bi-person-video"></i>
-          </div>
+
+          <input type="text" id="lastname" name="lastname" placeholder="Enter Last Name"
+            value="<?php echo $row['lastname']; ?>" />
+          <span></span>
+
+
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <label for="address">Complete Address:</label>
-          <div class="input-group">
-            <input type="text" id="address" name="address" placeholder="Enter Address" value="<?php echo $row['address']; ?>" />
-            <span></span>
-            <i class="bi bi-geo-alt-fill"></i>
-          </div>
+
+          <input type="text" id="address" name="address" placeholder="Enter Address"
+            value="<?php echo $row['address']; ?>" />
+          <span></span>
+
+
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <label for="mobile">Mobile no.:</label>
-          <div class="input-group">
-            <input type="text" id="mobile" name="mobilenumber" placeholder="Enter mobile number" value="<?php echo $row['mobilenumber']; ?>" />
-            <i class="bi bi-telephone"></i>
-            <span></span>
-          </div>
+
+          <input type="text" id="mobile" name="mobilenumber" placeholder="Enter mobile number"
+            value="<?php echo $row['mobilenumber']; ?>" />
+
+          <span></span>
+
 
         </div>
       </div>
@@ -113,16 +119,15 @@ $row = mysqli_fetch_assoc($query);
       <div class="row">
         <div class="col-md-6">
           <label for="birthdate">Birthdate:</label>
-          <div class="input-group">
-            <input type="text" id="birthdate" name="birthday" placeholder="MM-DD-YYYY" value="<?php echo $row['birthday']; ?>" />
-            <span></span>
-            <i class="bi bi-calendar"></i>
-          </div>
+
+          <input type="text" id="birthdate" name="birthday" placeholder="MM-DD-YYYY"
+            value="<?php echo $row['birthday']; ?>" />
+          <span></span>
 
         </div>
       </div>
 
-      <input type="submit" value="Submit" name='insert'/>
+      <input type="submit" value="Submit" name='insert' />
     </div>
   </form>
   <!-- scripts -->

@@ -23,6 +23,165 @@ session_start();
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/other.css" rel="stylesheet">
   <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+      margin-bottom: 2rem;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #f0f2f5;
+      padding-bottom: 1rem;
+    }
+
+    .table {
+      width: 100%;
+      margin-bottom: 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.95rem;
+    }
+
+    .table th {
+      background-color: #2c3e50;
+      color: #ffffff;
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem;
+      border: none;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .table th:first-child {
+      border-top-left-radius: 8px;
+    }
+
+    .table th:last-child {
+      border-top-right-radius: 8px;
+    }
+
+    .table td {
+      padding: 1rem;
+      text-align: center;
+      vertical-align: middle;
+      border-color: #f0f2f5;
+      color: #505c6e;
+      font-size: 0.9rem;
+    }
+
+    .table-hover tbody tr {
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #f8fafc;
+      transform: scale(1.002);
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #fafbfc;
+    }
+
+    .form-control[type="search"] {
+      width: 300px;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .form-control[type="search"]:focus {
+      outline: none;
+      border-color: #2c3e50;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    }
+
+    .form-control[type="search"]::placeholder {
+      color: #94a3b8;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+      max-width: 1400px;
+    }
+
+    @media (max-width: 1200px) {
+      .table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .card-body {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-control[type="search"] {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .table td,
+      .table th {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    .card-body {
+      overflow: auto;
+    }
+
+    .card-body::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .card-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .card-body::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .card-body::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
 </head>
 
 <body>
@@ -83,13 +242,6 @@ session_start();
               <span class='nav-item'>Dashboard</span>
             </a>
             <span class='tooltip'>Dashboard</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bxs-user-account nav-icon'></i>
-              <span class='nav-item'>Account</span>
-            </a>
-            <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
@@ -195,80 +347,87 @@ session_start();
   ?>
 
   <div class="main-content">
-  <section style="margin: 50px 0;">
-          <!-- Search Form -->
-          <form class="d-flex" role="search" method="GET" action="">
+    <section style="margin: 50px 0;">
+      <!-- Search Form -->
+      <form class="d-flex mb-4" role="search" method="GET" action=""
+        style="justify-content: left; margin-left: calc(100% - 95%)">
         <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
       </form>
-    <div class="container">
-        <table class="table table-dark">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Username</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Middle Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Birthday</th>
-                <th scope="col">Mobile no.</th>
-                <th scope="col">Role</th>
-              </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    require_once "../system/dao/connect.php";
-                    
-                    // SQL query
-                    $query = "SELECT * FROM usertable";
 
-                    // search input
-                    if (isset($_GET['search']) && !empty($_GET['search'])) {
-                        $search_term = $conn->real_escape_string($_GET['search']);
-                        $query = "SELECT * FROM usertable WHERE 
-                            username LIKE '%$search_term' OR
-                            firstname LIKE '%$search_term%' OR 
-                            middlename LIKE '%$search_term%' OR 
-                            lastname LIKE '%$search_term%' OR 
-                            address LIKE '%$search_term%' OR
-                            birthday LIKE '%$search_term%' OR
-                            mobilenumber LIKE '%$search_term%' OR
-                            role LIKE '%$search_term%'";
-                    }
-
-                    // Execute query and display results
-                    if ($result = $conn->query($query)) {
-                        while ($row = $result->fetch_assoc()) { 
-                            $id = $row['id'];
-                            $username = $row['username'];
-                            $firstname = $row['firstname'];
-                            $middlename = $row['middlename'];
-                            $lastname = $row['lastname'];
-                            $address = $row['address'];
-                            $birthday = $row['birthday'];
-                            $mobilenumber = $row['mobilenumber'];
-                            $role = $row['role'];
-                ?>
-				
-                <tr class="trow">
-                    <td><?php echo $id; ?></td>
-                    <td><?php echo $username; ?></td>
-                    <td><?php echo $firstname; ?></td>
-                    <td><?php echo $middlename; ?></td>
-                    <td><?php echo $lastname; ?></td>
-                    <td><?php echo $address; ?></td>
-                    <td><?php echo $birthday; ?></td>
-                    <td><?php echo $mobilenumber; ?></td>
-                    <td><?php echo $role; ?></td>
+      <div class="container">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <h4 class="card-title mb-4">User Table</h4>
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Middle Name</th>
+                  <th>Last Name</th>
+                  <th>Address</th>
+                  <th>Birthday</th>
+                  <th>Mobile no.</th>
+                  <th>Role</th>
                 </tr>
+              </thead>
+              <tbody>
                 <?php
-                        } 
-                    } 
+                require_once "../system/dao/connect.php";
+
+                // SQL query
+                $query = "SELECT * FROM usertable";
+
+                // search input
+                if (isset($_GET['search']) && !empty($_GET['search'])) {
+                  $search_term = $conn->real_escape_string($_GET['search']);
+                  $query = "SELECT * FROM usertable WHERE 
+                                username LIKE '%$search_term%' OR
+                                firstname LIKE '%$search_term%' OR 
+                                middlename LIKE '%$search_term%' OR 
+                                lastname LIKE '%$search_term%' OR 
+                                address LIKE '%$search_term%' OR
+                                birthday LIKE '%$search_term%' OR
+                                mobilenumber LIKE '%$search_term%' OR
+                                role LIKE '%$search_term%'";
+                }
+
+                // Execute query and display results
+                if ($result = $conn->query($query)) {
+                  while ($row = $result->fetch_assoc()) {
+                    $id = $row['id'];
+                    $username = $row['username'];
+                    $firstname = $row['firstname'];
+                    $middlename = $row['middlename'];
+                    $lastname = $row['lastname'];
+                    $address = $row['address'];
+                    $birthday = $row['birthday'];
+                    $mobilenumber = $row['mobilenumber'];
+                    $role = $row['role'];
+                    ?>
+
+                    <tr class="trow">
+                      <td><?php echo $id; ?></td>
+                      <td><?php echo $username; ?></td>
+                      <td><?php echo $firstname; ?></td>
+                      <td><?php echo $middlename; ?></td>
+                      <td><?php echo $lastname; ?></td>
+                      <td><?php echo $address; ?></td>
+                      <td><?php echo $birthday; ?></td>
+                      <td><?php echo $mobilenumber; ?></td>
+                      <td><?php echo $role; ?></td>
+                    </tr>
+                    <?php
+                  }
+                }
                 ?>
-            </tbody>
-          </table>
-    </div>
-</section>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script>
