@@ -234,11 +234,10 @@ if (!isset($_SESSION["loggedin"])) {
           <table class="table table-sm" id="inventoryTable">
             <thead>
               <tr>
-
                 <th scope="col">Name</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
-                <th scope="col">Image</th>
+                <th style="text-align: center;" scope="col">Image</th>
                 <th style="text-align: center;" scope="col">Actions</th>
               </tr>
             </thead>
@@ -258,10 +257,12 @@ if (!isset($_SESSION["loggedin"])) {
                     <td><?php echo $product_name ?></td>
                     <td><?php echo $product_quantity ?></td>
                     <td>₱<?php echo $product_price ?></td>
-                    <td><img src="../images/database/<?php echo $product_image ?>"></td>
+                    <td><div class="d-flex justify-content-center align-items-center"><img src="../images/database/<?php echo $product_image ?>"></div></td>
                     <td>
+                    <div class="d-flex justify-content-center align-items-center">  
                       <a href="/edit?id=${item.id}" class="btn btn-sm btn-link">Edit</a>
                       <a href="/delete?id=${item.id}" class="btn btn-sm btn-link">Delete</a>
+                    </div>
                     </td>
                   </tr>
                   <?php
