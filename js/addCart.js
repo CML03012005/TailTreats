@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Open modal when "Add to Cart" button is clicked
   addToCartButtons.forEach(button => {
     button.addEventListener("click", (e) => {
-      const productCard = e.target.closest(".product-card");
+      const productCard = e.target.closest(".item");
       const productName = productCard.querySelector(".product-title").textContent;
       const productImageSrc = productCard.querySelector("img").src;
-      const productPrice = productCard.querySelector(".product-price").textContent;
+      const productPrice = productCard.querySelector(".price").textContent;
 
       // Add a placeholder description (you can modify this as needed)
       const productDescription = "Get " + productName + ".";
@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentProduct && quantity > 0) {
       alert(`${quantity} of ${currentProduct} added to your cart!`);
 
-      // Redirect to cart or update cart logic (adjust URL as needed)
-      window.location.href = "/cart";
+      // redirect
+      window.location.href = "../addcart.php";
     }
   });
 });

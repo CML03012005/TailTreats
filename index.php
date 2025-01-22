@@ -93,7 +93,7 @@ session_start();
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -350,28 +350,28 @@ session_start();
             <div class="carousel-item active">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
                     <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
-                    <p class="product-price">₱739</p>
+                    <p class="price">₱739</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/health/health2.png" alt="Premier Table Lamp" class="product-img">
                     <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
-                    <p class="product-price">₱899</p>
+                    <p class="price">₱899</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/supplies/supplies1.png" alt="Modern Lamp L20" class="product-img">
                     <h5 class="product-title">Doggo Squeaky Ball</h5>
-                    <p class="product-price">₱119</p>
+                    <p class="price">₱119</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
@@ -382,28 +382,28 @@ session_start();
             <div class="carousel-item">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/grooming/groom1.png" alt="Premier Stained Lamp" class="product-img">
                     <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
-                    <p class="product-price">₱339</p>
+                    <p class="price">₱339</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/carriers/special3.png" alt="Ottoman 123" class="product-img">
                     <h5 class="product-title">Tail Treat bag</h5>
-                    <p class="product-price">₱1099</p>
+                    <p class="price">₱1099</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/foods/treat6.png" alt="Ottoman 350" class="product-img">
                     <h5 class="product-title">Dreamis with cheese 60g</h5>
-                    <p class="product-price">₱509</p>
+                    <p class="price">₱509</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
@@ -434,29 +434,29 @@ session_start();
             <div class="carousel-item active">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives1.png" alt="Product 1" class="product-img">
                     <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
-                    <p class="product-price">₱739</p>
+                    <p class="price">₱739</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives2.png" alt="Premier Table Lamp"
                       class="product-img">
                     <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
-                    <p class="product-price">₱899</p>
+                    <p class="price">₱899</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives3.png" alt="Modern Lamp L20" class="product-img">
                     <h5 class="product-title">Doggo Squeaky Ball</h5>
-                    <p class="product-price">₱119</p>
+                    <p class="price">₱119</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
@@ -467,29 +467,29 @@ session_start();
             <div class="carousel-item">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives4.png" alt="Premier Stained Lamp"
                       class="product-img">
                     <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
-                    <p class="product-price">₱339</p>
+                    <p class="price">₱339</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives5.png" alt="Ottoman 123" class="product-img">
                     <h5 class="product-title">Tail Treat bag</h5>
-                    <p class="product-price">₱1099</p>
+                    <p class="price">₱1099</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="product-card">
+                  <div class="item">
                     <img src="./images/products/exclusives/exclusives6.png" alt="Ottoman 350" class="product-img">
                     <h5 class="product-title">Dreamis with cheese 60g</h5>
-                    <p class="product-price">₱509</p>
+                    <p class="price">₱509</p>
                     <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>

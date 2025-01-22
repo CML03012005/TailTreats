@@ -348,16 +348,15 @@ session_start();
 
   <div class="main-content">
     <section style="margin: 50px 0;">
-      <!-- Search Form -->
-      <form class="d-flex mb-4" role="search" method="GET" action=""
-        style="justify-content: left; margin-left: calc(100% - 95%)">
-        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-      </form>
-
       <div class="container">
         <div class="card shadow-lg">
           <div class="card-body">
             <h4 class="card-title mb-4">User Table</h4>
+            <!-- Search Form -->
+            <form class="d-flex mb-4" role="search" method="GET" action=""
+              style="justify-content: left; margin-left: calc(100% - 99%)">
+              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            </form>
             <table class="table table-bordered table-striped table-hover">
               <thead>
                 <tr>

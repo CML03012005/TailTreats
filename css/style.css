@@ -549,13 +549,24 @@ p {
   padding: 1rem 0;
 }
 
-.product-card {
-  background-color: var(--clr-card-bg);
-  border-radius: 8px;
-  padding: 1rem;
+.item {
+  width: 350px;
+  height: 500px;
+  display: block;
+  background-color: var(--clr-light);
+  padding: 1.5em;
+  margin: 15px;
+  font-weight: 700;
+  color: var(--clr-dark);
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border: 2.5px solid var(--clr-orange);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
 }
 
 .product-card:hover {

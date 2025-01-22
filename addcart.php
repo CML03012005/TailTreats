@@ -23,6 +23,96 @@ session_start();
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/other.css" rel="stylesheet">
   <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .cart-container {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+    }
+
+    .cart-items {
+      padding: 2rem;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 120px 80px 40px;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .item-image {
+      width: 100px;
+      height: 100px;
+      background: #f3f4f6;
+      border-radius: 0.5rem;
+    }
+
+    .quantity-input {
+      width: 60px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+    }
+
+    .summary {
+      background: #f9fafb;
+      padding: 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.25rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      .cart-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .cart-item {
+        grid-template-columns: 100px 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -191,7 +281,70 @@ session_start();
   
   <!-- main -->
   <div class="main-content">
+  <div class="navBar">
+      <div class="menu-1">
+        <a href="index.php">Home</a>
+        <a href="index.php#featured">Featured</a>
+      </div>
+      <div class="logo-2">
+        <a href="">TailTreats</a>
+      </div>
+      <div class="menu-2">
+        <a href="products.php">Products</a>
+        <a href="index.php#support">Support</a>
+      </div>
+    </div>
+  <div class="card">
+      <div class="cart-container">
+        <div class="cart-items">
+          <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <span>3 items</span>
+          </div>
 
+          <div class="cart-item">
+            <div class="item-image"></div>
+            <div>
+              <p>Category</p>
+              <h3>Name</h3>
+            </div>
+            <div>
+              <input type="number" class="quantity-input" value="1" min="1">
+            </div>
+            <div>Price</div>
+            <!-- remove button delete lang to -->
+           <div>×</div> 
+          </div>
+
+          <a href="#" style="display: inline-block; margin-top: 2rem;">← Back to shop</a>
+        </div>
+
+        <div class="summary">
+          <h2 style="margin-bottom: 2rem;">Summary</h2>
+          
+          <div class="summary-row">
+            <span>Items 3</span>
+            <span>€ 132.00</span>
+          </div>
+
+          <h3 style="margin: 1rem 0;">Shipping</h3>
+          <select>
+            <option>Standard-Delivery- €5.00</option>
+            <option>Express-Delivery- €10.00</option>
+          </select>
+
+          <h3 style="margin: 1rem 0;">Give code</h3>
+          <input type="text" placeholder="Enter your code">
+
+          <div class="summary-row" style="margin-top: 2rem; font-weight: bold;">
+            <span>Total price</span>
+            <span>€ 137.00</span>
+          </div>
+
+          <button class="btn">Checkout</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>

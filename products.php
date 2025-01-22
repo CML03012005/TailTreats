@@ -62,10 +62,10 @@ session_start();
 
 <body>
 
-   <!-- sidebar -->
-   <?php
+  <!-- sidebar -->
+  <?php
   if (!isset($_SESSION["loggedin"])) {
-    echo"
+    echo "
     <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -91,12 +91,12 @@ session_start();
           </li>
         </ul>
       </div>";
-  } else if ($_SESSION["loggedin"] == true){
+  } else if ($_SESSION["loggedin"] == true) {
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
-    
-    if ($username != null && $role =='Admin'){
-      echo"
+
+    if ($username != null && $role == 'Admin') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -164,8 +164,8 @@ session_start();
           </li>
         </ul>
       </div>";
-    } else if ($username != null && $role =='User'){
-      echo"
+    } else if ($username != null && $role == 'User') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -190,7 +190,7 @@ session_start();
             <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -219,7 +219,7 @@ session_start();
           </li>
         </ul>
       </div>";
-    }     
+    }
   }
   ?>
 
@@ -236,6 +236,37 @@ session_start();
       <div class="menu-2">
         <a href="products.php">Products</a>
         <a href="index.php#support">Support</a>
+      </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- info -->
+            <div class="text-center mb-4">
+              <img id="modalProductImage" src="" alt="Product Image" class="img-fluid rounded"
+                style="width: 150px; height: auto;">
+              <h5 class="product-title" id="modalProductName" class="mt-3 mb-1"></h5 class="product-title">
+              <h6 id="modalProductPrice" class="text-muted"></h6>
+              <p id="modalProductDescription" class="text-muted small"></p>
+            </div>
+
+            <!-- quant -->
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="button" class="btn btn-outline add-to-cart-btn-secondary btn-sm quantity-btn" id="decreaseQuantity"
+                style="width: 40px; height: 40px; font-size: 20px;">-</button>
+              <span id="productQuantity" class="mx-3 fs-4">1</span>
+              <button type="button" class="btn btn-outline add-to-cart-btn-secondary btn-sm quantity-btn" id="increaseQuantity"
+                style="width: 40px; height: 40px; font-size: 20px;">+</button>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center align-items-center">
+            <button class="btn btn-secondary btn-outline add-to-cart-btn " data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary btn-outline add-to-cart-btn" id="confirmAddToCart">Add to Cart</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -261,9 +292,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food1.png" alt="Product 1">
         </div>
-        <p>Moochie Adult Small Breed Chicken Liver Wet Dog Food <br> 85g (12 pouches)</p>
+        <h5 class="product-title">Moochie Adult Small Breed Chicken Liver Wet Dog Food <br> 85g (12 pouches)</h5 class="product-title">
         <p class="price">₱739</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -272,9 +303,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food2.png" alt="Product 2">
         </div>
-        <p>Scrumbles Complete Dry Adult and Senior Dog Food Salmon <br> 2kg</p>
+        <h5 class="product-title">Scrumbles Complete Dry Adult and Senior Dog Food Salmon <br> 2kg</h5 class="product-title">
         <p class="price">₱979</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -283,9 +314,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food3.png" alt="Product 3">
         </div>
-        <p>Kit Cat Signature Salmon Dry Cat Food <br> 1.2kg</p>
+        <h5 class="product-title">Kit Cat Signature Salmon Dry Cat Food <br> 1.2kg</h5 class="product-title">
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -294,9 +325,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food4.png" alt="Product 4">
         </div>
-        <p>Royal Canin Kitten Instinctive Wet Food 85g</p>
+        <h5 class="product-title">Royal Canin Kitten Instinctive Wet Food 85g</h5 class="product-title">
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -305,9 +336,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food5.png" alt="Product 5">
         </div>
-        <p>Pedigree Adult Beef Wet Dog Food <br> 1.15kg (2 cans)</p>
+        <h5 class="product-title">Pedigree Adult Beef Wet Dog Food <br> 1.15kg (2 cans)</h5 class="product-title">
         <p class="price">₱625</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -316,9 +347,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/foods/food6.png" alt="Product 6">
         </div>
-        <p>Goodest Meaty Mackerel Pate with Chunks Wet Cat Food 85g (12 pouches)</p>
+        <h5 class="product-title">Goodest Meaty Mackerel Pate with Chunks Wet Cat Food 85g (12 pouches)</h5 class="product-title">
         <p class="price">₱469</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -328,9 +359,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/health/health1.png" alt="Product 1">
         </div>
-        <p>Dr Shiba Jolly Joints Dog Supplement Mini Tub</p>
+        <h5 class="product-title">Dr Shiba Jolly Joints Dog Supplement Mini Tub</h5 class="product-title">
         <p class="price">₱259</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -339,9 +370,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/health/health2.png" alt="Product 2">
         </div>
-        <p>Nexgard One Tablet Chewable for Dogs</p>
+        <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5 class="product-title">
         <p class="price">₱899</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -350,9 +381,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/health/health3.png" alt="Product 3">
         </div>
-        <p>IAMS Proactive Immune Dog Supplement <br> 168g</p>
+        <h5 class="product-title">IAMS Proactive Immune Dog Supplement <br> 168g</h5 class="product-title">
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -361,20 +392,20 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/health/health4.png" alt="Product 4">
         </div>
-        <p>Fresh Friends Mint Toothpaste <br> 90g (2pcs)</p>
+        <h5 class="product-title">Fresh Friends Mint Toothpaste <br> 90g (2pcs)</h5 class="product-title">
         <p class="price">₱429</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
       <div class="item item-5">
         <div class="category">Health</div>
         <div class="image-holder">
-          <img src="./images/products/health/health5.png" alt="Product 5">
+          <img src="./images/products/health/health5 class="product-title".png" alt="Product 5">
         </div>
-        <p>Dr Shiba Anti Flea & Tick Soap</p>
+        <h5 class="product-title">Dr Shiba Anti Flea & Tick Soap</h5 class="product-title">
         <p class="price">₱239</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -383,9 +414,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/health/health6.png" alt="Product 6">
         </div>
-        <p>VitaCat Calming Aid for Cats 60 Chews</p>
+        <h5 class="product-title">VitaCat Calming Aid for Cats 60 Chews</h5 class="product-title">
         <p class="price">₱1229</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -395,9 +426,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom1.png" alt="Product 1">
         </div>
-        <p>Doggo Sharp Layering Scissor</p>
+        <h5 class="product-title">Doggo Sharp Layering Scissor</h5 class="product-title">
         <p class="price">₱339</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -406,9 +437,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom2.png" alt="Product 2">
         </div>
-        <p>Bark2Basics Dog Cologne</p>
+        <h5 class="product-title">Bark2Basics Dog Cologne</h5 class="product-title">
         <p class="price">₱639</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -417,9 +448,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom3.png" alt="Product 3">
         </div>
-        <p>Doggo Bathing Brush</p>
+        <h5 class="product-title">Doggo Bathing Brush</h5 class="product-title">
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -428,9 +459,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom4.png" alt="Product 4">
         </div>
-        <p>Andis UltraEdge Clipper Blade <br> Size 10</p>
+        <h5 class="product-title">Andis UltraEdge Clipper Blade <br> Size 10</h5 class="product-title">
         <p class="price">₱1459</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -439,9 +470,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom5.png" alt="Product 5">
         </div>
-        <p>Boshel Dog Toothbrush Set</p>
+        <h5 class="product-title">Boshel Dog Toothbrush Set</h5 class="product-title">
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -450,9 +481,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/grooming/groom6.png" alt="Product 6">
         </div>
-        <p>Doggo Pet Nail Scissor</p>
+        <h5 class="product-title">Doggo Pet Nail Scissor</h5 class="product-title">
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -462,9 +493,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies1.png" alt="Product 1">
         </div>
-        <p>Doggo Squeaky Ball</p>
+        <h5 class="product-title">Doggo Squeaky Ball</h5 class="product-title">
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -473,9 +504,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies2.png" alt="Product 2">
         </div>
-        <p>Doggo Strong Harness</p>
+        <h5 class="product-title">Doggo Strong Harness</h5 class="product-title">
         <p class="price">₱288</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -484,9 +515,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies3.png" alt="Product 3">
         </div>
-        <p>Doggo Slow-Down Bowl</p>
+        <h5 class="product-title">Doggo Slow-Down Bowl</h5 class="product-title">
         <p class="price">₱348</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -495,9 +526,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies4.png" alt="Product 4">
         </div>
-        <p>Pets at Home Clamshell Cat Bed Blue Spotty</p>
+        <h5 class="product-title">Pets at Home Clamshell Cat Bed Blue Spotty</h5 class="product-title">
         <p class="price">₱1099</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -506,9 +537,9 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies5.png" alt="Product 5">
         </div>
-        <p>Squishmallows Original Gordon Shark Pet Bed Grey</p>
+        <h5 class="product-title">Squishmallows Original Gordon Shark Pet Bed Grey</h5 class="product-title">
         <p class="price">₱2199</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
 
@@ -517,13 +548,13 @@ session_start();
         <div class="image-holder">
           <img src="./images/products/supplies/supplies6.png" alt="Product 6">
         </div>
-        <p>Approved Washable Male Wrap 1s Large</p>
+        <h5 class="product-title">Approved Washable Male Wrap 1s Large</h5 class="product-title">
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
+        <button class="btn btn-primary btn-outline add-to-cart-btn"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
           cart</button>
       </div>
     </div>
-
+  
   </div>
 
   <script>
@@ -535,6 +566,10 @@ session_start();
     };
   </script>
   <script src="./js/search.js"></script>
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/carousel.js"></script>
+  <script src="./js/addCart.js"></script>
 
 </body>
 

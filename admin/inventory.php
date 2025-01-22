@@ -83,10 +83,10 @@ else if (isset($_POST['delete_product'])) {
 
     #inventoryTable img{
     max-width: 30%;
-    
   }
+  
   </style>
-  <
+  
 </head>
 <!-- sidebar -->
 <?php
@@ -433,10 +433,10 @@ if (!isset($_SESSION["loggedin"])) {
                       <img id="editProductImagePreview" src="../images/database/<?php echo $image; ?>" alt="Product Image" style="width: 100px; height: auto;">
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary" name="edit_product">Edit</button>
-                    <button type="submit" class="btn btn-primary" name="delete_product">Delete</button>
+                  <div class="modal-footer justify-content-center">
+                    <button style="width: 30%;" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button style="width: 30%;" type="submit" class="btn btn-primary" name="edit_product">Confirm</button>
+                    <button style="width: 30%;" type="submit" class="btn btn-primary" name="delete_product">Delete</button>
                   </div>
                 </form>
               </div>
