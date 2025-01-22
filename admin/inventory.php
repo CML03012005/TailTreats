@@ -283,7 +283,7 @@ if (!isset($_SESSION["loggedin"])) {
               </button>
             </div>
             <div class="form-group col-md-4 text-left mb-3">
-              <a href="/option" class="btn btn-primary btn-sm">Back</a>
+              <a href="../index.php" class="btn btn-primary btn-sm">Back</a>
             </div>
           </div>
 
