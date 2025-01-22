@@ -244,7 +244,7 @@ session_start();
             <span class='tooltip'>Dashboard</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../admin/inventory.php' class='nav-link'>
               <i class='bx bxs-shopping-bag nav-icon'></i>
               <span class='nav-item'>Products</span>
             </a>
