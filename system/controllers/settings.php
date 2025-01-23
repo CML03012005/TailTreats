@@ -47,7 +47,7 @@ session_start();
           <i id='button' class='bx bx-menu'></i>
         </div>
         <div class='user'>
-          <img src='./images/user-profile.png' alt='profile' class='user-img'>
+          <img src='../../images/user-profile.png' alt='profile' class='user-img'>
           <div>
             <p class='bold'>Guest</p>
             <p></p>
@@ -78,7 +78,7 @@ session_start();
           <i id='button' class='bx bx-menu'></i>
         </div>
         <div class='user'>
-          <img src='./images/user-profile.png' alt='profile' class='user-img'>
+          <img src='../../images/user-profile.png' alt='profile' class='user-img'>
           <div>
             <p class='bold'>$username</p>
             <p>$role</p>
@@ -86,33 +86,27 @@ session_start();
         </div>
         <ul class='nav-list'>
           <li class='nav-item-wrapper'>
-            <a href='./admin/dashboard.php' class='nav-link'>
+            <a href='../../admin/dashboard.php' class='nav-link'>
               <i class='bx bxs-grid-alt nav-icon'></i>
               <span class='nav-item'>Dashboard</span>
             </a>
             <span class='tooltip'>Dashboard</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../../admin/inventory.php' class='nav-link'>
               <i class='bx bxs-shopping-bag nav-icon'></i>
               <span class='nav-item'>Products</span>
             </a>
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../../addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
           </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-body nav-icon'></i>
-              <span class='nav-item'>Customers</span>
-            </a>
-            <span class='tooltip'>Customers</span>
-          </li>
+
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
               <i class='bx bx-location-plus nav-icon'></i>
@@ -121,7 +115,7 @@ session_start();
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
@@ -162,7 +156,7 @@ session_start();
             <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../../addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -176,14 +170,14 @@ session_start();
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
             <span class='tooltip'>Settings</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./system/controllers/logout.php' class='nav-link'>
+            <a href='./logout.php' class='nav-link'>
               <i class='bx bx-log-out nav-icon'></i>
               <span class='nav-item'>Logout</span>
             </a>

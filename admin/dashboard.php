@@ -251,18 +251,11 @@ session_start();
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-body nav-icon'></i>
-              <span class='nav-item'>Customers</span>
-            </a>
-            <span class='tooltip'>Customers</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
@@ -272,7 +265,7 @@ session_start();
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='../system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>

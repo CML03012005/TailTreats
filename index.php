@@ -4,6 +4,25 @@ session_start();
 
 ?>
 
+<?php
+include './system/dao/connect.php';
+if (isset($_POST['add_to_cart'])) {
+  $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+  $product_price = mysqli_real_escape_string($conn, $_POST['product_price']);
+  $product_image = mysqli_real_escape_string($conn, $_POST['product_image']);
+  $product_quantity = 1;
+
+  $query = "INSERT INTO `cart` (name, quantity, price, image) VALUES ('$product_name', $product_quantity, '$product_price', '$product_image')";
+
+  if (mysqli_query($conn, $query)) {
+    echo "Product added to cart.";
+  } else {
+    echo "Error: " . mysqli_error($conn);
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +49,7 @@ session_start();
   <!-- sidebar -->
   <?php
   if (!isset($_SESSION["loggedin"])) {
-    echo"
+    echo "
     <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -56,12 +75,12 @@ session_start();
           </li>
         </ul>
       </div>";
-  } else if ($_SESSION["loggedin"] == true){
+  } else if ($_SESSION["loggedin"] == true) {
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
-    
-    if ($username != null && $role =='Admin'){
-      echo"
+
+    if ($username != null && $role == 'Admin') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -101,20 +120,13 @@ session_start();
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
-              <i class='bx bx-body nav-icon'></i>
-              <span class='nav-item'>Customers</span>
-            </a>
-            <span class='tooltip'>Customers</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
               <i class='bx bx-location-plus nav-icon'></i>
               <span class='nav-item'>Shipping</span>
             </a>
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
@@ -129,8 +141,8 @@ session_start();
           </li>
         </ul>
       </div>";
-    } else if ($username != null && $role =='User'){
-      echo"
+    } else if ($username != null && $role == 'User') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -184,11 +196,11 @@ session_start();
           </li>
         </ul>
       </div>";
-    }     
+    }
   }
   ?>
 
-  
+
   <!-- main -->
   <div class="main-content">
     <div class="navBar">
@@ -261,7 +273,7 @@ session_start();
         <!-- Grooming -->
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
           <a href="products.php#groomSec" class="text-decoration-none">
-           <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">  
+            <div class="p-4 rounded category-box" style="background-color: var(--clr-orange); color: var(--clr-light);">
               <div class="mb-3">
                 <img src="./images/categories/groom.jpg" alt="Grooming Category" class="circle-img">
               </div>
@@ -332,7 +344,7 @@ session_start();
           </div>
           <div class="modal-footer d-flex justify-content-center align-items-center">
             <button class="btn btn-secondary btn-outline " data-bs-dismiss="modal">Close</button>
-            <button class="btn btn-primary btn-outline" id="confirmAddToCart">Add to Cart</button>
+            <button class="btn btn-primary btn-outline" id="confirmAddToCart" name="add_to_cart">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -350,13 +362,18 @@ session_start();
             <div class="carousel-item active">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="item">
-                    <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
-                    <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
-                    <p class="price">₱739</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
-                  </div>
+                  <form action="" method="post">
+                    <div class="item">
+                      <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
+                      <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
+                      <p class="price">₱739</p>
+                      <input type="hidden" name="product_name" value="Moochie Adult Small Breed Chicken Liver">
+                      <input type="hidden" name="product_price" value="739">
+                      <input type="hidden" name="product_image" value="./images/products/foods/food1.png">
+                      <button type="submit" class="btn btn-primary btn-outline" name="add_to_cart">
+                        <i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart
+                      </button>
+                    </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
@@ -420,6 +437,7 @@ session_start();
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </a>
+          </form>
         </div>
       </div>
     </section>

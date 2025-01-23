@@ -31,6 +31,7 @@ session_start();
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       margin-top: 0.5rem;
+      height: auto;
     }
 
     .cart-container {
@@ -84,7 +85,8 @@ session_start();
       margin: 1rem 0;
     }
 
-    select, input[type="text"] {
+    select,
+    input[type="text"] {
       width: 100%;
       padding: 0.5rem;
       margin: 0.5rem 0;
@@ -94,7 +96,6 @@ session_start();
 
     .btn {
       width: 100%;
-      padding: 0.75rem;
       background: #111827;
       color: white;
       border: none;
@@ -102,15 +103,63 @@ session_start();
       cursor: pointer;
     }
 
-    @media (max-width: 1024px) {
-      .cart-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .cart-item {
-        grid-template-columns: 100px 1fr;
-        gap: 1rem;
-      }
+    .remove-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #000;
+      cursor: pointer;
+      transition: color 0.2s;
+      margin-left: 15px;
+    }
+
+    .cart-item-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cart-item-details {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      gap: 1rem;
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      background: #f3f4f6;
+      border-radius: 0.5rem;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .cart-item-price {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-right: 1rem;
+      margin-right: 85px;
+    }
+
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      background: #f3f4f6;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -120,7 +169,7 @@ session_start();
   <!-- sidebar -->
   <?php
   if (!isset($_SESSION["loggedin"])) {
-    echo"
+    echo "
     <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -146,12 +195,12 @@ session_start();
           </li>
         </ul>
       </div>";
-  } else if ($_SESSION["loggedin"] == true){
+  } else if ($_SESSION["loggedin"] == true) {
     $username = $_SESSION["username"];
     $role = $_SESSION["role"];
-    
-    if ($username != null && $role =='Admin'){
-      echo"
+
+    if ($username != null && $role == 'Admin') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -176,25 +225,18 @@ session_start();
             <span class='tooltip'>Dashboard</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./admin/inventory.php' class='nav-link'>
               <i class='bx bxs-shopping-bag nav-icon'></i>
               <span class='nav-item'>Products</span>
             </a>
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./addcart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-body nav-icon'></i>
-              <span class='nav-item'>Customers</span>
-            </a>
-            <span class='tooltip'>Customers</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
@@ -204,7 +246,7 @@ session_start();
             <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
+            <a href='./system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
@@ -219,8 +261,8 @@ session_start();
           </li>
         </ul>
       </div>";
-    } else if ($username != null && $role =='User'){
-      echo"
+    } else if ($username != null && $role == 'User') {
+      echo "
       <div class='sidebar'>
         <div class='top'>
           <div class='logo-1'>
@@ -274,14 +316,14 @@ session_start();
           </li>
         </ul>
       </div>";
-    }     
+    }
   }
   ?>
 
-  
+
   <!-- main -->
   <div class="main-content">
-  <div class="navBar">
+    <div class="navBar">
       <div class="menu-1">
         <a href="index.php">Home</a>
         <a href="index.php#featured">Featured</a>
@@ -294,57 +336,74 @@ session_start();
         <a href="index.php#support">Support</a>
       </div>
     </div>
-  <div class="card">
-      <div class="cart-container">
-        <div class="cart-items">
-          <div class="cart-header">
-            <h1>Shopping Cart</h1>
-            <span>3 items</span>
-          </div>
 
-          <div class="cart-item">
-            <div class="item-image"></div>
-            <div>
-              <p>Category</p>
-              <h3>Name</h3>
-            </div>
-            <div>
-              <input type="number" class="quantity-input" value="1" min="1">
-            </div>
-            <div>Price</div>
-            <!-- remove button delete lang to -->
-           <div>×</div> 
-          </div>
+    <?php
+    include './system/dao/connect.php';
 
-          <a href="#" style="display: inline-block; margin-top: 2rem;">← Back to shop</a>
-        </div>
+    $select_products = mysqli_query($conn, "select * from `cart`");
+    if (mysqli_num_rows($select_products) > 0) {
+      while ($fetch_prod = mysqli_fetch_assoc($select_products)) {
 
-        <div class="summary">
-          <h2 style="margin-bottom: 2rem;">Summary</h2>
-          
-          <div class="summary-row">
-            <span>Items 3</span>
-            <span>€ 132.00</span>
-          </div>
 
-          <h3 style="margin: 1rem 0;">Shipping</h3>
-          <select>
-            <option>Standard-Delivery- €5.00</option>
-            <option>Express-Delivery- €10.00</option>
-          </select>
+        ?>
+        <form method="post" action="">
+          <div class="card">
+            <div class="cart-container">
+              <div class="cart-items">
+                <div class="cart-header">
+                  <h1>Shopping Cart</h1>
+                  <span>3 items</span>
+                </div>
 
-          <h3 style="margin: 1rem 0;">Give code</h3>
-          <input type="text" placeholder="Enter your code">
+                <div class="cart-item-container">
+                  <div class="cart-item-details">
+                    <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img cart-item-image">
+                    <h5 class="product-title cart-item-name">Moochie Adult Small Breed Chicken Liver</h5>
+                  </div>
+                  <p class="cart-item-price">₱739</p>
+                  <input type="hidden" name="product_image" value="./images/products/foods/food1.png">
+                  <div>
+                    <input type="hidden" name="product_name" value="Moochie Adult Small Breed Chicken Liver">
+                  </div>
+                  <div class="cart-item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="quantity-btn">+</button>
+                  </div>
+                  <input type="hidden" name="product_price" value="739">
+                  <input type="hidden" name="product_image" value="./images/products/foods/food1.png">
 
-          <div class="summary-row" style="margin-top: 2rem; font-weight: bold;">
-            <span>Total price</span>
-            <span>€ 137.00</span>
-          </div>
+                  <div class="remove-btn">×</div>
+                </div>
+              </div>
+        </form>
+        <?php
 
-          <button class="btn">Checkout</button>
-        </div>
+      }
+    } else {
+      echo "No items added to cart";
+    }
+    ?>
+
+
+
+    <div class="summary">
+      <h2>Summary</h2>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>₱739</span>
       </div>
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span>₱0</span>
+      </div>
+      <div class="summary-row">
+        <span>Total</span>
+        <span>₱739</span>
+      </div>
+      <button class="btn">Proceed to Checkout</button>
     </div>
+  </div>
   </div>
 
   <script>
@@ -362,4 +421,5 @@ session_start();
   <script src="./js/addCart.js"></script>
 
 </body>
+
 </html>

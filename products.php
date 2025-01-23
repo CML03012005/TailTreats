@@ -136,13 +136,6 @@ session_start();
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
-              <i class='bx bx-body nav-icon'></i>
-              <span class='nav-item'>Customers</span>
-            </a>
-            <span class='tooltip'>Customers</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
               <i class='bx bx-location-plus nav-icon'></i>
               <span class='nav-item'>Shipping</span>
             </a>
