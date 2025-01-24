@@ -154,7 +154,7 @@ if (!isset($_SESSION["loggedin"])) {
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='../addcart.php' class='nav-link'>
+            <a href='../cart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -209,7 +209,7 @@ if (!isset($_SESSION["loggedin"])) {
             <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./addcart.php' class='nav-link'>
+            <a href='./cart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>

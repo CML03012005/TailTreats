@@ -7,7 +7,7 @@ function filterProducts() {
   const selectedCategory = filterDropdown.value;
 
   items.forEach(item => {
-    const productName = item.querySelector("p").textContent.trim().toLowerCase();
+    const productName = item.querySelector(".product-title").textContent.trim().toLowerCase();
     const category = item.querySelector(".category").textContent.trim();
 
     const matchesSearch = productName.includes(searchQuery);

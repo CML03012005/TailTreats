@@ -4,24 +4,7 @@ session_start();
 
 ?>
 
-<?php
-include './system/dao/connect.php';
-if (isset($_POST['add_to_cart'])) {
-  $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
-  $product_price = mysqli_real_escape_string($conn, $_POST['product_price']);
-  $product_image = mysqli_real_escape_string($conn, $_POST['product_image']);
-  $product_quantity = 1;
 
-  $query = "INSERT INTO `cart` (name, quantity, price, image) VALUES ('$product_name', $product_quantity, '$product_price', '$product_image')";
-
-  if (mysqli_query($conn, $query)) {
-    echo "Product added to cart.";
-  } else {
-    echo "Error: " . mysqli_error($conn);
-  }
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -112,7 +95,7 @@ if (isset($_POST['add_to_cart'])) {
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./addcart.php' class='nav-link'>
+            <a href='./cart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -167,7 +150,7 @@ if (isset($_POST['add_to_cart'])) {
             <span class='tooltip'>Account</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./addcart.php' class='nav-link'>
+            <a href='./cart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
@@ -318,69 +301,31 @@ if (isset($_POST['add_to_cart'])) {
       </div>
     </div>
 
-
-    <!-- modal -->
-    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <!-- info -->
-            <div class="text-center mb-4">
-              <img id="modalProductImage" src="" alt="Product Image" class="img-fluid rounded"
-                style="width: 150px; height: auto;">
-              <h5 id="modalProductName" class="mt-3 mb-1"></h5>
-              <h6 id="modalProductPrice" class="text-muted"></h6>
-              <p id="modalProductDescription" class="text-muted small"></p>
-            </div>
-
-            <!-- quant -->
-            <div class="d-flex justify-content-center align-items-center">
-              <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="decreaseQuantity"
-                style="width: 40px; height: 40px; font-size: 20px;">-</button>
-              <span id="productQuantity" class="mx-3 fs-4">1</span>
-              <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="increaseQuantity"
-                style="width: 40px; height: 40px; font-size: 20px;">+</button>
-            </div>
-          </div>
-          <div class="modal-footer d-flex justify-content-center align-items-center">
-            <button class="btn btn-secondary btn-outline " data-bs-dismiss="modal">Close</button>
-            <button class="btn btn-primary btn-outline" id="confirmAddToCart" name="add_to_cart">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
     <!-- carousel -->
     <section class="product-section" id="featured">
       <div class="container">
-        <h2 class="section-title text-center">Recommended by us</h2>
+        <h2 class="section-title text-center">Featured Products</h2>
         <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <!-- First Slide -->
             <div class="carousel-item active">
               <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <form action="" method="post">
-                    <div class="item">
-                      <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
-                      <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
-                      <p class="price">₱739</p>
-                      <input type="hidden" name="product_name" value="Moochie Adult Small Breed Chicken Liver">
-                      <input type="hidden" name="product_price" value="739">
-                      <input type="hidden" name="product_image" value="./images/products/foods/food1.png">
-                      <button type="submit" class="btn btn-primary btn-outline" name="add_to_cart">
-                        <i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart
-                      </button>
-                    </div>
+                  <div class="item">
+                    <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
+                    <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
+                    <p class="price">₱739</p>
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="1"><i
+                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                  </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
-                    <img src="./images/products/health/health2.png" alt="Premier Table Lamp" class="product-img">
+                    <img src="./images/products/health/health2.png" alt="Premier Table Lamp"
+                      class="product-img">
                     <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
                     <p class="price">₱899</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="8"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -389,7 +334,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/supplies/supplies1.png" alt="Modern Lamp L20" class="product-img">
                     <h5 class="product-title">Doggo Squeaky Ball</h5>
                     <p class="price">₱119</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="19"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -400,10 +345,11 @@ if (isset($_POST['add_to_cart'])) {
               <div class="row justify-content-center">
                 <div class="col-md-4">
                   <div class="item">
-                    <img src="./images/products/grooming/groom1.png" alt="Premier Stained Lamp" class="product-img">
+                    <img src="./images/products/grooming/groom1.png" alt="Premier Stained Lamp"
+                      class="product-img">
                     <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
                     <p class="price">₱339</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="13"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -412,7 +358,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/carriers/special3.png" alt="Ottoman 123" class="product-img">
                     <h5 class="product-title">Tail Treat bag</h5>
                     <p class="price">₱1099</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="25"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -421,7 +367,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/foods/treat6.png" alt="Ottoman 350" class="product-img">
                     <h5 class="product-title">Dreamis with cheese 60g</h5>
                     <p class="price">₱509</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="26"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -429,15 +375,14 @@ if (isset($_POST['add_to_cart'])) {
             </div>
           </div>
           <!-- Carousel Controls -->
-          <a class="carousel-control-prev" href="#productSlider1" role="button" data-bs-slide="prev">
+          <a class="carousel-control-prev" href="#productSlider2" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#productSlider1" role="button" data-bs-slide="next">
+          <a class="carousel-control-next" href="#productSlider2" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </a>
-          </form>
         </div>
       </div>
     </section>
@@ -456,7 +401,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/exclusives/exclusives1.png" alt="Product 1" class="product-img">
                     <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
                     <p class="price">₱739</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 1"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="1"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -466,7 +411,7 @@ if (isset($_POST['add_to_cart'])) {
                       class="product-img">
                     <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
                     <p class="price">₱899</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 2"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="8"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -475,7 +420,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/exclusives/exclusives3.png" alt="Modern Lamp L20" class="product-img">
                     <h5 class="product-title">Doggo Squeaky Ball</h5>
                     <p class="price">₱119</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 3"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="19"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -490,7 +435,7 @@ if (isset($_POST['add_to_cart'])) {
                       class="product-img">
                     <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
                     <p class="price">₱339</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 4"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="13"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -499,7 +444,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/exclusives/exclusives5.png" alt="Ottoman 123" class="product-img">
                     <h5 class="product-title">Tail Treat bag</h5>
                     <p class="price">₱1099</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 5"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="25"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -508,7 +453,7 @@ if (isset($_POST['add_to_cart'])) {
                     <img src="./images/products/exclusives/exclusives6.png" alt="Ottoman 350" class="product-img">
                     <h5 class="product-title">Dreamis with cheese 60g</h5>
                     <p class="price">₱509</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product="Product 6"><i
+                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="26"><i
                         class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
                   </div>
                 </div>
@@ -603,6 +548,38 @@ if (isset($_POST['add_to_cart'])) {
     </footer>
 
 
+  </div>
+
+
+  <!-- modal -->
+  <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- info -->
+          <div class="text-center mb-4">
+            <img id="modalProductImage" src="" alt="Product Image" class="img-fluid rounded"
+              style="width: 150px; height: auto;">
+            <h5 class="product-title" id="modalProductName" class="mt-3 mb-1"></h5 class="product-title">
+            <h6 id="modalProductPrice" class="text-muted"></h6>
+            <p id="modalProductDescription" class="text-muted small"></p>
+          </div>
+
+          <!-- quant -->
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="button" class="btn btn-outline add-to-cart-btn-secondary btn-sm quantity-btn" id="decreaseQuantity"
+              style="width: 40px; height: 40px; font-size: 20px;">-</button>
+            <span id="productQuantity" class="mx-3 fs-4">1</span>
+            <button type="button" class="btn btn-outline add-to-cart-btn-secondary btn-sm quantity-btn" id="increaseQuantity"
+              style="width: 40px; height: 40px; font-size: 20px;">+</button>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center align-items-center">
+          <button class="btn btn-secondary btn-outline add-to-cart-btn " data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary btn-outline add-to-cart-btn" id="confirmAddToCart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
