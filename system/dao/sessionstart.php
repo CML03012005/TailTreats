@@ -2,6 +2,9 @@
 session_start();
 include 'connect.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 if (isset($_POST['insert'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -23,11 +26,9 @@ if (isset($_POST['insert'])) {
     }
 
     if ($fetch['accountlocked'] == 1) {
-  
         $lock_time = strtotime($fetch['locktime']);
-        $current_time = time() + 25142;
-
-        $remaining_time = ($lock_time + 1) - $current_time;
+        $current_time = time();
+        $remaining_time = ($lock_time + 60) - $current_time; 
 
         if ($remaining_time > 0) {
             echo "<script>alert('Your account will be unlocked in $remaining_time seconds.');
@@ -38,36 +39,29 @@ if (isset($_POST['insert'])) {
         }
     }
 
-    $query_3 = mysqli_query($conn, "SELECT * FROM usertable WHERE username='$username' AND password='$password'");
+    $hashed_password = hash('sha256', $password); 
+    $query_3 = mysqli_query($conn, "SELECT * FROM usertable WHERE username='$username' AND password='$hashed_password'");
 
     if (mysqli_num_rows($query_3) != 0) {
-    
         $test = mysqli_fetch_assoc($query_3);
-        $validUsername = $test['username'];
-        $validPassword = $test['password'];
-	$id = $test['id'];
         $role = $test['role'];
 
-        if ($username === $validUsername && $password === $validPassword) {
+        mysqli_query($conn, "UPDATE usertable SET failedattempts = 0, locktime = NULL, accountlocked = 0 WHERE username='$username'");
 
-            mysqli_query($conn, "UPDATE usertable SET failedattempts = 0, locktime = NULL, accountlocked = 0 WHERE username='$username'");
+        $_SESSION["loggedin"] = true;
+        $_SESSION["username"] = $username;
+        $_SESSION["id"] = $test['id'];
+        $_SESSION["role"] = $role;
 
-            $_SESSION["loggedin"] = true;
-            $_SESSION["username"] = $username;
-	    $_SESSION["id"] = $id;
-            $_SESSION["role"] = $role;
-
-            if ($role == "Admin") {
-                echo "<script>alert('Admin Log-in Success!');
-                window.location.href='../../index.php';</script>";
-            } else {
-                echo "<script>alert('User Log-in Success!');
-                window.location.href='../../index.php';</script>";
-            }
-            exit;
+        if ($role == "Admin") {
+            echo "<script>alert('Admin Log-in Success!');
+            window.location.href='../../index.php';</script>";
+        } else {
+            echo "<script>alert('User Log-in Success!');
+            window.location.href='../../index.php';</script>";
         }
+        exit;
     } else {
-  
         $failed_attempts = $fetch['failedattempts'] + 1;
 
         if ($failed_attempts >= 3) {

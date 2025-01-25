@@ -122,7 +122,7 @@ session_start();
             <span class='tooltip'>Settings</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='./system/controllers/logout.php' class='nav-link'>
+            <a href='./logout.php' class='nav-link'>
               <i class='bx bx-log-out nav-icon'></i>
               <span class='nav-item'>Logout</span>
             </a>
