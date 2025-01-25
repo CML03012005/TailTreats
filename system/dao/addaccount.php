@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		$username=$_POST['username'];
 		$password=$_POST['password'];
+		$hashed_password = hash('sha256', $password);
 		$firstname=$_POST['firstname'];
 		$middlename=$_POST['middlename'];
 		$lastname=$_POST['lastname'];
@@ -13,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$number=$_POST['mobilenumber'];
 	
 		mysqli_query($conn, "INSERT INTO usertable(username, password, firstname, middlename, lastname, address, birthday, mobilenumber) 
-		VALUES('$username','$password','$firstname','$middlename','$lastname','$address','$birthday','$number')");
+		VALUES('$username','$hashed_password','$firstname','$middlename','$lastname','$address','$birthday','$number')");
 		
 		header("Location: ../../index.php");
 		
