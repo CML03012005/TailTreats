@@ -27,8 +27,8 @@ if (isset($_POST['insert'])) {
 
     if ($fetch['accountlocked'] == 1) {
         $lock_time = strtotime($fetch['locktime']);
-        $current_time = time();
-        $remaining_time = ($lock_time + 60) - $current_time; 
+        $current_time = time() + 25142;
+        $remaining_time = ($lock_time + 1) - $current_time;
 
         if ($remaining_time > 0) {
             echo "<script>alert('Your account will be unlocked in $remaining_time seconds.');

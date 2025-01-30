@@ -34,10 +34,10 @@ session_start();
       height: auto;
     }
 
-    .cart-container {
-      display: flex;
-      flex-direction: row;
-      grid-template-columns: 1fr 400px;
+    .cart-item-container {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      display: block; /* Change to block to stack items vertically */
     }
 
     .cart-items {
@@ -347,6 +347,61 @@ session_start();
     $cart_items = [];
     $total_price = 0;
 
+    if (isset($_POST['remove_item_id'])) {
+      $item_id = $_POST['remove_item_id'];
+      $username = $_SESSION['username'];
+  
+      // Prepare the SQL statement to prevent SQL injection
+      $stmt = $conn->prepare("DELETE FROM `cart` WHERE `id` = ? AND `username` = ?");
+      $stmt->bind_param("is", $item_id, $username);
+  
+      if ($stmt->execute()) {
+          // Item removed successfully
+          echo "<script>alert('Item was removed!');
+              window.location.href = './cart.php';
+          </script>";
+      } else {
+          // Error occurred
+          echo "<script>alert('Item was not removed!');
+              window.location.href = './cart.php';
+          </script>";
+      }
+    }
+
+    if (isset($_POST['checkout'])) {
+    $username = $_SESSION['username'];
+    
+    // Fetch cart items
+    $select_products = mysqli_query($conn, "SELECT * FROM `cart` WHERE username = '$username'");
+    
+    if (mysqli_num_rows($select_products) > 0) {
+        while ($fetch_prod = mysqli_fetch_assoc($select_products)) {
+            $item_id = $fetch_prod['id'];
+            $quantity = $fetch_prod['quantity'];
+
+            // Update inventory
+            $stmt = $conn->prepare("UPDATE `inventory` SET `quantity` = `quantity` - ? WHERE `id` = ?");
+            $stmt->bind_param("ii", $quantity, $item_id);
+            $stmt->execute();
+            $stmt->close();
+        }
+
+        // Clear the cart after successful checkout
+        $stmt = $conn->prepare("DELETE FROM `cart` WHERE `username` = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->close();
+
+        // Success message
+        echo "<script>alert('Checkout successful! Thank you for purchasing!');
+              window.location.href = './cart.php';
+          </script>";
+    } else {
+      echo "<script>alert('Checkout unsuccessful! Please try again.');
+              window.location.href = './cart.php';
+          </script>";
+    }
+  }
     if (mysqli_num_rows($select_products) > 0) {
       while ($fetch_prod = mysqli_fetch_assoc($select_products)) {
         $cart_items[] = $fetch_prod;
@@ -361,22 +416,26 @@ session_start();
                   <h1>Shopping Cart</h1>
                   <span><?php echo count($cart_items); ?> products</span>
                 </div>
+                <table>
+                    <tr>
+                    </tr>
+                </table>
+                <?php foreach ($cart_items as $item): ?>
                 <div class="cart-item-container">
-                    
-                    <?php foreach ($cart_items as $item): ?>
                     <div class="cart-item-details">
                     <img src="./images/database/<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" class="product-img cart-item-image">
                     <h5 class="product-title cart-item-name"><?php echo $item['name']; ?></h5>
                     </div>
                     <p class="cart-item-price">₱<?php echo number_format($item['price'], 2); ?></p>
                     <div class="cart-item-quantity">
-                    <button class="quantity-btn">-</button>
                     <input type="text" class="quantity-input" value="<?php echo $item['quantity']; ?>" readonly>
-                    <button class="quantity-btn">+</button>
                     </div>
-                    <button class="remove-btn" type="button" onclick="removeItem(<?php echo $item['id']; ?>)">×</button>
-                    <?php endforeach; ?>
+                    <form method="post" style="display:inline;">
+                        <input type="hidden" name="remove_item_id" value="<?php echo $item['id']; ?>">
+                        <button class="remove-btn" type="submit">×</button>
+                    </form> 
                 </div>
+                <?php endforeach; ?>
               </div>
         </form>
         <?php
@@ -402,8 +461,9 @@ session_start();
             <span>Total</span>
             <span>₱<?php echo number_format($total_price, 2); ?></span>
           </div>
-          <button class="btn">Proceed to Checkout</button>
-    </div>
+          <form method="post">
+            <button class="btn" type="submit" name="checkout">Proceed to Checkout</button>
+          </form>
   </div>
   </div>
 

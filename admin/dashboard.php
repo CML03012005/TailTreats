@@ -251,7 +251,7 @@ session_start();
             <span class='tooltip'>Products</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='../addcart.php' class='nav-link'>
+            <a href='../cart.php' class='nav-link'>
               <i class='bx bxs-cart nav-icon'></i>
               <span class='nav-item'>Cart</span>
             </a>
