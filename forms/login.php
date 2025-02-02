@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
+        <title>TailTreats - Login</title>
         <link rel="stylesheet" href="../css/log-in-style.css">
         <link rel="stylesheet" href="../css/validationlogin.css">
         <style>

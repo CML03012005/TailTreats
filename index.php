@@ -102,13 +102,6 @@ session_start();
             <span class='tooltip'>Cart</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
-          </li>
-          <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
@@ -155,13 +148,6 @@ session_start();
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>
@@ -315,8 +301,16 @@ session_start();
                     <img src="./images/products/foods/food1.png" alt="Product 1" class="product-img">
                     <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
                     <p class="price">₱739</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="1"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='1'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
+                    
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -325,8 +319,15 @@ session_start();
                       class="product-img">
                     <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
                     <p class="price">₱899</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="8"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='8'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -334,8 +335,15 @@ session_start();
                     <img src="./images/products/supplies/supplies1.png" alt="Modern Lamp L20" class="product-img">
                     <h5 class="product-title">Doggo Squeaky Ball</h5>
                     <p class="price">₱119</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="19"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='19'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -349,8 +357,15 @@ session_start();
                       class="product-img">
                     <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
                     <p class="price">₱339</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="13"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='13'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -358,8 +373,15 @@ session_start();
                     <img src="./images/products/carriers/special3.png" alt="Ottoman 123" class="product-img">
                     <h5 class="product-title">Tail Treat bag</h5>
                     <p class="price">₱1099</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="25"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='25'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -367,9 +389,15 @@ session_start();
                     <img src="./images/products/foods/treat6.png" alt="Ottoman 350" class="product-img">
                     <h5 class="product-title">Dreamis with cheese 60g</h5>
                     <p class="price">₱509</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="26"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
-                  </div>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='26'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                 </div>
               </div>
             </div>
@@ -399,29 +427,50 @@ session_start();
                 <div class="col-md-4">
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives1.png" alt="Product 1" class="product-img">
-                    <h5 class="product-title">Moochie Adult Small Breed Chicken Liver</h5>
-                    <p class="price">₱739</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="1"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Sunny Daze Wide Stripe Clip on Dog Poop Bag Dispenser Blue</h5>
+                    <p class="price">₱549</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='27'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives2.png" alt="Premier Table Lamp"
                       class="product-img">
-                    <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5>
-                    <p class="price">₱899</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="8"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Sunny Daze Retractable Dog Lead Blue</h5>
+                    <p class="price">₱549</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='28'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives3.png" alt="Modern Lamp L20" class="product-img">
-                    <h5 class="product-title">Doggo Squeaky Ball</h5>
-                    <p class="price">₱119</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="19"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Sunny Daze Wide Stripe Print Dog Lead Blue - 102cm</h5>
+                    <p class="price">₱549</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='29'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -433,28 +482,49 @@ session_start();
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives4.png" alt="Premier Stained Lamp"
                       class="product-img">
-                    <h5 class="product-title">Doggo Sharp Layering Scissor</h5>
-                    <p class="price">₱339</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="13"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Sunny Daze Strawberry Clip On Dog Poop Bag Dispenser</h5>
+                    <p class="price">₱549</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='30'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives5.png" alt="Ottoman 123" class="product-img">
-                    <h5 class="product-title">Tail Treat bag</h5>
-                    <p class="price">₱1099</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="25"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Sunny Daze Strawberry Dog Collar Red</h5>
+                    <p class="price">₱549</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='31'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="item">
                     <img src="./images/products/exclusives/exclusives6.png" alt="Ottoman 350" class="product-img">
-                    <h5 class="product-title">Dreamis with cheese 60g</h5>
-                    <p class="price">₱509</p>
-                    <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="26"><i
-                        class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to cart</button>
+                    <h5 class="product-title">Pets at Home Fabric Pet Carrier Multi Coloured</h5>
+                    <p class="price">₱1542</p>
+                    <?php
+                      if (!isset($_SESSION["loggedin"])){
+                        echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+                        class='' style='margin-right: 5px;'></i>Login</button>";
+                      } else{
+                        echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='32'><i
+                        class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>

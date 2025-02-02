@@ -240,13 +240,6 @@ session_start();
             <span class='tooltip'>Cart</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
-          </li>
-          <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
@@ -293,13 +286,6 @@ session_start();
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>
@@ -428,7 +414,7 @@ session_start();
                     </div>
                     <p class="cart-item-price">₱<?php echo number_format($item['price'], 2); ?></p>
                     <div class="cart-item-quantity">
-                    <input type="text" class="quantity-input" value="<?php echo $item['quantity']; ?>" readonly>
+                    <input type="text" class="quantity-input" style="outline: none; border: none;" value="<?php echo $item['quantity']; ?>" readonly>
                     </div>
                     <form method="post" style="display:inline;">
                         <input type="hidden" name="remove_item_id" value="<?php echo $item['id']; ?>">

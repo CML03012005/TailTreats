@@ -64,7 +64,7 @@ else if (isset($_POST['delete_product'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailTreats - Cart</title>
+  <title>TailTreats - Inventory</title>
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -161,13 +161,6 @@ if (!isset($_SESSION["loggedin"])) {
             <span class='tooltip'>Cart</span>
           </li>
           <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
-          </li>
-          <li class='nav-item-wrapper'>
             <a href='../system/controllers/settings.php' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
@@ -214,13 +207,6 @@ if (!isset($_SESSION["loggedin"])) {
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>

@@ -9,7 +9,7 @@ session_start();
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Edit Account</title>
+  <title>TailTreats - Edit Account</title>
 
   <!-- CSS -->
   <link href="../css/jquery-ui.min.css" rel="stylesheet">

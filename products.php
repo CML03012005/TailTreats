@@ -136,13 +136,6 @@ session_start();
           </li>
           <li class='nav-item-wrapper'>
             <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
               <i class='bx bx-cog nav-icon'></i>
               <span class='nav-item'>Settings</span>
             </a>
@@ -188,13 +181,6 @@ session_start();
               <span class='nav-item'>Cart</span>
             </a>
             <span class='tooltip'>Cart</span>
-          </li>
-          <li class='nav-item-wrapper'>
-            <a href='#' class='nav-link'>
-              <i class='bx bx-location-plus nav-icon'></i>
-              <span class='nav-item'>Shipping</span>
-            </a>
-            <span class='tooltip'>Shipping</span>
           </li>
           <li class='nav-item-wrapper'>
             <a href='./system/controllers/settings.php' class='nav-link'>
@@ -288,8 +274,15 @@ session_start();
         </div>
         <h5 class="product-title">Moochie Adult Small Breed Chicken Liver Wet Dog Food <br> 85g (12 pouches)</h5 class="product-title">
         <p class="price">₱739</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="1"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='1'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-2">
@@ -299,8 +292,15 @@ session_start();
         </div>
         <h5 class="product-title">Scrumbles Complete Dry Adult and Senior Dog Food Salmon <br> 2kg</h5 class="product-title">
         <p class="price">₱979</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="2"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='2'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-3">
@@ -310,8 +310,15 @@ session_start();
         </div>
         <h5 class="product-title">Kit Cat Signature Salmon Dry Cat Food <br> 1.2kg</h5 class="product-title">
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="3"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='3'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-4">
@@ -321,8 +328,15 @@ session_start();
         </div>
         <h5 class="product-title">Royal Canin Kitten Instinctive Wet Food 85g</h5 class="product-title">
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="4"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='4'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-5">
@@ -332,8 +346,15 @@ session_start();
         </div>
         <h5 class="product-title">Pedigree Adult Beef Wet Dog Food <br> 1.15kg (2 cans)</h5 class="product-title">
         <p class="price">₱625</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="5"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='5'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-6">
@@ -343,8 +364,15 @@ session_start();
         </div>
         <h5 class="product-title">Goodest Meaty Mackerel Pate with Chunks Wet Cat Food 85g (12 pouches)</h5 class="product-title">
         <p class="price">₱469</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="6"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='6'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <!-- Health section -->
@@ -355,8 +383,15 @@ session_start();
         </div>
         <h5 class="product-title">Dr Shiba Jolly Joints Dog Supplement Mini Tub</h5 class="product-title">
         <p class="price">₱259</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="7"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='7'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-2">
@@ -366,8 +401,15 @@ session_start();
         </div>
         <h5 class="product-title">Nexgard One Tablet Chewable for Dogs</h5 class="product-title">
         <p class="price">₱899</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="8"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='8'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-3">
@@ -377,8 +419,15 @@ session_start();
         </div>
         <h5 class="product-title">IAMS Proactive Immune Dog Supplement <br> 168g</h5 class="product-title">
         <p class="price">₱669</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="9"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='9'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-4">
@@ -388,8 +437,15 @@ session_start();
         </div>
         <h5 class="product-title">Fresh Friends Mint Toothpaste <br> 90g (2pcs)</h5 class="product-title">
         <p class="price">₱429</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="10"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='10'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-5">
@@ -399,8 +455,15 @@ session_start();
         </div>
         <h5 class="product-title">Dr Shiba Anti Flea & Tick Soap</h5 class="product-title">
         <p class="price">₱239</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="11"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='11'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-6">
@@ -410,8 +473,15 @@ session_start();
         </div>
         <h5 class="product-title">VitaCat Calming Aid for Cats 60 Chews</h5 class="product-title">
         <p class="price">₱1229</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="12"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='12'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <!-- Grooming section -->
@@ -422,8 +492,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Sharp Layering Scissor</h5 class="product-title">
         <p class="price">₱339</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="13"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='13'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-2">
@@ -433,8 +510,15 @@ session_start();
         </div>
         <h5 class="product-title">Bark2Basics Dog Cologne</h5 class="product-title">
         <p class="price">₱639</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="14"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='14'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-3">
@@ -444,8 +528,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Bathing Brush</h5 class="product-title">
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="15"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='15'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-4">
@@ -455,8 +546,15 @@ session_start();
         </div>
         <h5 class="product-title">Andis UltraEdge Clipper Blade <br> Size 10</h5 class="product-title">
         <p class="price">₱1459</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="16"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='16'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-5">
@@ -466,8 +564,15 @@ session_start();
         </div>
         <h5 class="product-title">Boshel Dog Toothbrush Set</h5 class="product-title">
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="17"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='17'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-6">
@@ -477,8 +582,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Pet Nail Scissor</h5 class="product-title">
         <p class="price">₱349</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="18"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='18'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <!-- Supplies section -->
@@ -489,8 +601,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Squeaky Ball</h5 class="product-title">
         <p class="price">₱119</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="19"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='19'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-2">
@@ -500,8 +619,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Strong Harness</h5 class="product-title">
         <p class="price">₱288</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="20"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='20'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-3">
@@ -511,8 +637,15 @@ session_start();
         </div>
         <h5 class="product-title">Doggo Slow-Down Bowl</h5 class="product-title">
         <p class="price">₱348</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="21"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='21'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-4">
@@ -522,8 +655,15 @@ session_start();
         </div>
         <h5 class="product-title">Pets at Home Clamshell Cat Bed Blue Spotty</h5 class="product-title">
         <p class="price">₱1099</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="22"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='22'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-5">
@@ -533,8 +673,15 @@ session_start();
         </div>
         <h5 class="product-title">Squishmallows Original Gordon Shark Pet Bed Grey</h5 class="product-title">
         <p class="price">₱2199</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="23"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='23'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
 
       <div class="item item-6">
@@ -544,8 +691,15 @@ session_start();
         </div>
         <h5 class="product-title">Approved Washable Male Wrap 1s Large</h5 class="product-title">
         <p class="price">₱329</p>
-        <button class="btn btn-primary btn-outline add-to-cart-btn" data-product-id="24"><i class="bi bi-cart-fill" style="margin-right: 5px;"></i> Add to
-          cart</button>
+        <?php
+          if (!isset($_SESSION["loggedin"])){
+            echo "<button class='btn btn-primary btn-outline' data-product-id=''><i
+            class='' style='margin-right: 5px;'></i>Login</button>";
+          } else{
+            echo "<button class='btn btn-primary btn-outline add-to-cart-btn' data-product-id='24'><i
+            class='bi bi-cart-fill' style='margin-right: 5px;'></i> Add to cart</button>";
+          }
+        ?>
       </div>
     </div>
   
